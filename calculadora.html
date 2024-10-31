@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora para Corretores de Imóveis</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            max-width: 500px;
+            width: 90%;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4a90e2;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: right;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4a90e2;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #357abd;
+        }
+        .clear-button {
+            background-color: #e74c3c;
+        }
+        .clear-button:hover {
+            background-color: #c0392b;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calculadora para Corretores</h1>
+        <p>Calcula o valor de entrada para colocar no simulador quando o valor de avaliação e compra e venda são diferentes.</p>
+
+        <div class="input-group">
+            <label for="valorCompraVenda">Valor de Compra e Venda:</label>
+            <input type="text" id="valorCompraVenda" placeholder="Digite o valor de compra e venda">
+        </div>
+
+        <div class="input-group">
+            <label for="valorEntradaReal">Valor de Entrada Real:</label>
+            <input type="text" id="valorEntradaReal" placeholder="Digite o valor de entrada real">
+        </div>
+
+        <div class="input-group">
+            <label for="subsidio">Subsídio:</label>
+            <input type="text" id="subsidio" placeholder="Digite o valor do subsídio">
+        </div>
+
+        <div class="input-group">
+            <label for="valorAvaliacao">Valor de Avaliação:</label>
+            <input type="text" id="valorAvaliacao" placeholder="Digite o valor de avaliação">
+        </div>
+
+        <div class="button-container">
+            <button class="button" onclick="calcular()">Calcular</button>
+            <button class="button clear-button" onclick="limparFormulario()">Limpar Formulário</button>
+        </div>
+
+        <div class="result" id="resultFinanciado"></div>
+        <div class="result" id="resultEntradaSimulador"></div>
+    </div>
+
+    <script>
+        function formatarMoeda(valor) {
+            return valor.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+        }
+
+        function parseCurrency(valor) {
+            return parseFloat(valor.replace(/\./g, '').replace(',', '.').replace('R$ ', ''));
+        }
+
+        function calcular() {
+            const valorCompraVenda = parseCurrency(document.getElementById('valorCompraVenda').value) || 0;
+            const valorEntradaReal = parseCurrency(document.getElementById('valorEntradaReal').value) || 0;
+            const subsidio = parseCurrency(document.getElementById('subsidio').value) || 0;
+            const valorAvaliacao = parseCurrency(document.getElementById('valorAvaliacao').value) || 0;
+
+            const valorFinanciado = valorCompraVenda - valorEntradaReal - subsidio;
+            const valorEntradaSimulador = valorAvaliacao - valorFinanciado - subsidio;
+
+            document.getElementById('resultFinanciado').textContent = "Valor a ser Financiado: " + formatarMoeda(valorFinanciado);
+            document.getElementById('resultEntradaSimulador').textContent = "Valor Entrada Simulador: " + formatarMoeda(valorEntradaSimulador);
+        }
+
+        function limparFormulario() {
+            document.getElementById('valorCompraVenda').value = "";
+            document.getElementById('valorEntradaReal').value = "";
+            document.getElementById('subsidio').value = "";
+            document.getElementById('valorAvaliacao').value = "";
+            document.getElementById('resultFinanciado').textContent = "";
+            document.getElementById('resultEntradaSimulador').textContent = "";
+        }
+
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.addEventListener('input', (e) => {
+                let valor = e.target.value.replace(/\D/g, '');
+                valor = (parseInt(valor) / 100).toFixed(2) + '';
+                valor = valor.replace(".", ",");
+                valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                e.target.value = "R$ " + valor;
+            });
+        });
+    </script>
+
+</body>
+</html>
