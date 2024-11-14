@@ -131,7 +131,7 @@
         </div>
 
         <div class="input-group">
-            <a href="entrada.html" target="_blank">
+            <a href="entrada.html" tabindex="-1" aria-hidden="true" target="_blank">
                 <label for="sinal">Sinal:</label>
             </a>
             <input type="text" id="sinal" placeholder="Digite o valor do sinal">
@@ -154,7 +154,7 @@
 
         <div class="input-group">
             <label for="telefoneCliente">Telefone WhatsApp do Cliente:</label>
-            <input type="text" id="telefoneCliente"  class="no-format" placeholder="Digite o telefone WhatsApp">
+            <input type="text" id="telefoneCliente"  class="no-format" placeholder="Digite o telefone WhatsApp Ex. 5579999999999">
         </div>
 
         <div class="button-container">
@@ -168,7 +168,7 @@
 
     <script>
         function parseCurrency(valor) {
-            return parseFloat(valor.replace(/\./g, '').replace(',', '.').replace('R$ ', ''));
+            return parseFloat(valor.replace(/\./g, '').replace(',', '.').replace('R$ ', '')) || 0;
         }
 
         document.querySelectorAll('input[type="text"]').forEach(input => {
@@ -205,7 +205,7 @@
             const telefone = document.getElementById('telefoneCliente').value;
 
             const poupanca = valorCompraVenda - valorFinanciamento - subsidio - fgts;
-            const valorParcela = (poupanca - sinal - balao) / numParcelas;
+            const valorParcela = ((poupanca - sinal - balao) / numParcelas) || 0;
 
             const descricaoPagamento = `${nome}\n\n${valorCompraVenda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} V. IMÓVEL\n${valorFinanciamento.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} FINANCIAMENTO\n${subsidio.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} SUBSÍDIO\n${fgts.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} FGTS\n_________________________\n${poupanca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} POUPANÇA\n\nOPÇÃO DE PARCELAMENTO DA POUPANÇA\n\nSINAL. ${sinal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}\nBALÕES ${balao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}\n${numParcelas} X ${valorParcela.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}\n\nPRESTAÇÃO CAIXA\n${prestacaoCaixa.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`;
 
