@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora para Corretores de Imóveis</title>
+    <title>Calculadora CFP</title>
     <style>
         * {
             box-sizing: border-box;
@@ -21,8 +21,8 @@
         }
         .container {
             background-color: #ffffff;
-            max-width: 500px;
-            width: 90%;
+            max-width: 600px;
+            width: 100%;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -43,7 +43,7 @@
             margin-bottom: 15px;
         }
         label {
-            display: block;
+          display: block;
             font-weight: bold;
             color: #555;
             margin-bottom: 5px;
@@ -62,7 +62,7 @@
             margin-top: 15px;
         }
         .button {
-            width: 100%;
+          width: 100%;
             padding: 12px;
             background-color: #4a90e2;
             border: none;
@@ -83,18 +83,32 @@
             background-color: #c0392b;
         }
         .result {
-            text-align: center;
+          text-align: center;
             margin-top: 20px;
             font-size: 18px;
             color: #333;
+        }
+        .whatsapp-link {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 16px;
+            color: #25D366;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Calculadora para Corretores</h1>
-        <p>Calcula o valor de entrada para colocar no simulador quando o valor de avaliação e compra e venda são diferentes.</p>
+        <h1>Calculadora CFP</h1>
+        <br/>
+    
+
+        <div class="input-group">
+            <label for="nomeEmpreendimento">Nome do Empreendimento:</label>
+            <input type="text" id="nomeEmpreendimento"  class="no-format" placeholder="Digite o nome do empreendimento">
+        </div>
 
         <div class="input-group">
             <label for="valorCompraVenda">Valor de Compra e Venda:</label>
@@ -102,8 +116,8 @@
         </div>
 
         <div class="input-group">
-            <label for="valorEntradaReal">Valor de Entrada Real:</label>
-            <input type="text" id="valorEntradaReal" placeholder="Digite o valor de entrada real">
+            <label for="valorFinanciamento">Valor do Financiamento:</label>
+            <input type="text" id="valorFinanciamento" placeholder="Digite o valor do financiamento">
         </div>
 
         <div class="input-group">
@@ -112,55 +126,56 @@
         </div>
 
         <div class="input-group">
-            <label for="valorAvaliacao">Valor de Avaliação:</label>
-            <input type="text" id="valorAvaliacao" placeholder="Digite o valor de avaliação">
+            <label for="fgts">FGTS:</label>
+            <input type="text" id="fgts" placeholder="Digite o valor do FGTS">
+        </div>
+
+        <div class="input-group">
+            <a href="entrada.html" target="_blank">
+                <label for="sinal">Sinal:</label>
+            </a>
+            <input type="text" id="sinal" placeholder="Digite o valor do sinal">
+        </div>
+
+        <div class="input-group">
+            <label for="balao">Balão:</label>
+            <input type="text" id="balao" placeholder="Digite o valor do balão">
+        </div>
+
+        <div class="input-group">
+            <label for="numParcelasPoupanca">Número de Parcelas Poupança:</label>
+            <input type="text" id="numParcelasPoupanca"  class="no-format" placeholder="Digite o número de parcelas">
+        </div>
+
+        <div class="input-group">
+            <label for="prestacaoCaixa">Valor Prestação Caixa:</label>
+            <input type="text" id="prestacaoCaixa" placeholder="Digite o valor da prestação">
+        </div>
+
+        <div class="input-group">
+            <label for="telefoneCliente">Telefone WhatsApp do Cliente:</label>
+            <input type="text" id="telefoneCliente"  class="no-format" placeholder="Digite o telefone WhatsApp">
         </div>
 
         <div class="button-container">
-            <button class="button" onclick="calcular()">Calcular</button>
-            <button class="button clear-button" onclick="limparFormulario()">Limpar Formulário</button>
+        <button class="button" onclick="calcular()">Calcular</button>
+        <button class="button clear-button" onclick="limparFormulario()">Limpar Formulário</button>
         </div>
 
-        <div class="result" id="resultFinanciado"></div>
-        <div class="result" id="resultEntradaSimulador"></div>
+        <div class="result" id="resultados"></div>
+        <a id="whatsappLink" class="whatsapp-link" target="_blank">Enviar para WhatsApp</a>
     </div>
 
     <script>
-        function formatarMoeda(valor) {
-            return valor.toLocaleString('pt-BR', {
-                style: 'currency',
-                currency: 'BRL'
-            });
-        }
-
         function parseCurrency(valor) {
             return parseFloat(valor.replace(/\./g, '').replace(',', '.').replace('R$ ', ''));
         }
 
-        function calcular() {
-            const valorCompraVenda = parseCurrency(document.getElementById('valorCompraVenda').value) || 0;
-            const valorEntradaReal = parseCurrency(document.getElementById('valorEntradaReal').value) || 0;
-            const subsidio = parseCurrency(document.getElementById('subsidio').value) || 0;
-            const valorAvaliacao = parseCurrency(document.getElementById('valorAvaliacao').value) || 0;
-
-            const valorFinanciado = valorCompraVenda - valorEntradaReal - subsidio;
-            const valorEntradaSimulador = valorAvaliacao - valorFinanciado - subsidio;
-
-            document.getElementById('resultFinanciado').textContent = "Valor a ser Financiado: " + formatarMoeda(valorFinanciado);
-            document.getElementById('resultEntradaSimulador').textContent = "Valor Entrada Simulador: " + formatarMoeda(valorEntradaSimulador);
-        }
-
-        function limparFormulario() {
-            document.getElementById('valorCompraVenda').value = "";
-            document.getElementById('valorEntradaReal').value = "";
-            document.getElementById('subsidio').value = "";
-            document.getElementById('valorAvaliacao').value = "";
-            document.getElementById('resultFinanciado').textContent = "";
-            document.getElementById('resultEntradaSimulador').textContent = "";
-        }
-
         document.querySelectorAll('input[type="text"]').forEach(input => {
             input.addEventListener('input', (e) => {
+              if (e.target.classList.contains('no-format')) {
+               return; // Sai da função sem formatar o valor
+              }
                 let valor = e.target.value.replace(/\D/g, '');
                 valor = (parseInt(valor) / 100).toFixed(2) + '';
                 valor = valor.replace(".", ",");
@@ -168,6 +183,39 @@
                 e.target.value = "R$ " + valor;
             });
         });
+
+        function limparFormulario() {
+    // Seleciona todos os elementos input do tipo texto
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+        input.value = ''; // Limpa o valor do campo
+    });
+}
+        
+
+        function calcular() {
+            const nome = document.getElementById('nomeEmpreendimento').value;
+            const valorCompraVenda = parseCurrency(document.getElementById('valorCompraVenda').value);
+            const valorFinanciamento = parseCurrency(document.getElementById('valorFinanciamento').value);
+            const subsidio = parseCurrency(document.getElementById('subsidio').value);
+            const fgts = parseCurrency(document.getElementById('fgts').value);
+            const sinal = parseCurrency(document.getElementById('sinal').value);
+            const balao = parseCurrency(document.getElementById('balao').value);
+            const numParcelas = parseCurrency(document.getElementById('numParcelasPoupanca').value);
+            const prestacaoCaixa = parseCurrency(document.getElementById('prestacaoCaixa').value);
+            const telefone = document.getElementById('telefoneCliente').value;
+
+            const poupanca = valorCompraVenda - valorFinanciamento - subsidio - fgts;
+            const valorParcela = (poupanca - sinal - balao) / numParcelas;
+
+            const descricaoPagamento = `${nome}\n\n${valorCompraVenda.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} V. IMÓVEL\n${valorFinanciamento.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} FINANCIAMENTO\n${subsidio.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} SUBSÍDIO\n${fgts.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} FGTS\n_________________________\n${poupanca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} POUPANÇA\n\nOPÇÃO DE PARCELAMENTO DA POUPANÇA\n\nSINAL. ${sinal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}\nBALÕES ${balao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}\n${numParcelas} X ${valorParcela.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}\n\nPRESTAÇÃO CAIXA\n${prestacaoCaixa.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`;
+
+            document.getElementById('resultados').innerText = descricaoPagamento;
+
+            const whatsappLink = `https://wa.me/${telefone}?text=${encodeURIComponent(descricaoPagamento)}`;
+            document.getElementById('whatsappLink').href = whatsappLink;
+            document.getElementById('whatsappLink').innerText = "Enviar para WhatsApp";
+        }
+        
     </script>
 
 </body>
