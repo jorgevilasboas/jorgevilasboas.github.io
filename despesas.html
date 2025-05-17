@@ -10,6 +10,7 @@
     th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
     th { background-color: #f2f2f2; }
     tfoot td { font-weight: bold; }
+    .center { text-align: center; }
   </style>
 </head>
 <body>
@@ -25,15 +26,17 @@
   <table>
     <thead>
       <tr>
+        <th class="center">Incluir</th>
         <th>Descrição</th>
         <th>Data</th>
         <th>Valor (R$)</th>
+        <th class="center">Ações</th>
       </tr>
     </thead>
     <tbody id="tabelaCorpo"></tbody>
     <tfoot>
       <tr>
-        <td colspan="2">Total</td>
+        <td colspan="4">Total Selecionado</td>
         <td id="totalValor">R$ 0,00</td>
       </tr>
     </tfoot>
@@ -53,19 +56,27 @@
     function atualizarTabela() {
       contas.sort((a, b) => new Date(a.data) - new Date(b.data));
       tabelaCorpo.innerHTML = '';
-      let total = 0;
 
-      for (const conta of contas) {
+      for (let i = 0; i < contas.length; i++) {
+        const conta = contas[i];
         const row = document.createElement('tr');
+
         row.innerHTML = `
+          <td class="center"><input type="checkbox" data-index="${i}" ${conta.incluirNoTotal ? 'checked' : ''}></td>
           <td>${conta.descricao}</td>
           <td>${new Date(conta.data).toLocaleDateString('pt-BR')}</td>
           <td>R$ ${Number(conta.valor).toFixed(2)}</td>
+          <td class="center"><button data-delete="${i}">Excluir</button></td>
         `;
+
         tabelaCorpo.appendChild(row);
-        total += parseFloat(conta.valor);
       }
 
+      atualizarTotal();
+    }
+
+    function atualizarTotal() {
+      let total = contas.reduce((acc, c) => c.incluirNoTotal ? acc + parseFloat(c.valor) : acc, 0);
       totalValor.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
     }
 
@@ -77,10 +88,28 @@
 
       if (!descricao || !data || !valor) return;
 
-      contas.push({ descricao, data, valor });
+      contas.push({ descricao, data, valor, incluirNoTotal: true });
       salvarContas();
       atualizarTabela();
       form.reset();
+    });
+
+    tabelaCorpo.addEventListener('click', function(e) {
+      if (e.target.matches('button[data-delete]')) {
+        const index = e.target.getAttribute('data-delete');
+        contas.splice(index, 1);
+        salvarContas();
+        atualizarTabela();
+      }
+    });
+
+    tabelaCorpo.addEventListener('change', function(e) {
+      if (e.target.matches('input[type="checkbox"]')) {
+        const index = e.target.getAttribute('data-index');
+        contas[index].incluirNoTotal = e.target.checked;
+        salvarContas();
+        atualizarTotal();
+      }
     });
 
     atualizarTabela(); // carrega ao iniciar
