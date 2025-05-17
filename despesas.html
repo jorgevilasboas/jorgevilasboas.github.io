@@ -57,21 +57,15 @@
       localStorage.setItem('contas', JSON.stringify(contas));
     }
 
-    function ordenarContas(coluna) {
-      if (ordemAtual.coluna === coluna) {
-        ordemAtual.direcao = ordemAtual.direcao === 'asc' ? 'desc' : 'asc';
-      } else {
-        ordemAtual.coluna = coluna;
-        ordemAtual.direcao = 'asc';
-      }
-
+    function ordenarContas() {
+      const coluna = ordemAtual.coluna;
       contas.sort((a, b) => {
         let valA = a[coluna];
         let valB = b[coluna];
 
         if (coluna === 'data') {
-          valA = new Date(valA);
-          valB = new Date(valB);
+          valA = valA.replace(/-/g, '');
+          valB = valB.replace(/-/g, '');
         } else if (coluna === 'valor') {
           valA = parseFloat(valA);
           valB = parseFloat(valB);
@@ -87,7 +81,7 @@
     }
 
     function atualizarTabela() {
-      ordenarContas(ordemAtual.coluna);
+      ordenarContas();
       tabelaCorpo.innerHTML = '';
 
       for (let i = 0; i < contas.length; i++) {
@@ -97,8 +91,8 @@
         row.innerHTML = `
           <td class="center"><input type="checkbox" data-index="${i}" ${conta.incluirNoTotal ? 'checked' : ''}></td>
           <td>${conta.descricao}</td>
-          <td>${new Date(conta.data).toLocaleDateString('pt-BR')}</td>
-          <td>R$ ${Number(conta.valor).toFixed(2)}</td>
+          <td>${new Date(conta.data + 'T12:00:00').toLocaleDateString('pt-BR')}</td>
+          <td>R$ ${Number(conta.valor).toFixed(2).replace('.', ',')}</td>
           <td class="center"><button data-delete="${i}">Excluir</button></td>
         `;
 
@@ -160,12 +154,17 @@
     headers.forEach(header => {
       header.addEventListener('click', () => {
         const coluna = header.getAttribute('data-sort');
-        ordenarContas(coluna);
+        if (ordemAtual.coluna === coluna) {
+          ordemAtual.direcao = ordemAtual.direcao === 'asc' ? 'desc' : 'asc';
+        } else {
+          ordemAtual.coluna = coluna;
+          ordemAtual.direcao = 'asc';
+        }
         atualizarTabela();
       });
     });
 
-    atualizarTabela(); // renderiza ao carregar
+    atualizarTabela();
   </script>
 </body>
 </html>
