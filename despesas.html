@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Contas</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button { padding: 8px; margin: 5px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    tfoot td { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Adicionar Conta</h2>
+  <form id="contaForm">
+    <input type="text" id="descricao" placeholder="Descrição" required>
+    <input type="date" id="data" required>
+    <input type="number" id="valor" placeholder="Valor (R$)" step="0.01" required>
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <h2>Contas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Data</th>
+        <th>Valor (R$)</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaCorpo"></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Total</td>
+        <td id="totalValor">R$ 0,00</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <script>
+    const form = document.getElementById('contaForm');
+    const tabelaCorpo = document.getElementById('tabelaCorpo');
+    const totalValor = document.getElementById('totalValor');
+
+    let contas = JSON.parse(localStorage.getItem('contas')) || [];
+
+    function salvarContas() {
+      localStorage.setItem('contas', JSON.stringify(contas));
+    }
+
+    function atualizarTabela() {
+      contas.sort((a, b) => new Date(a.data) - new Date(b.data));
+      tabelaCorpo.innerHTML = '';
+      let total = 0;
+
+      for (const conta of contas) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${conta.descricao}</td>
+          <td>${new Date(conta.data).toLocaleDateString('pt-BR')}</td>
+          <td>R$ ${Number(conta.valor).toFixed(2)}</td>
+        `;
+        tabelaCorpo.appendChild(row);
+        total += parseFloat(conta.valor);
+      }
+
+      totalValor.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+    }
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const descricao = document.getElementById('descricao').value.trim();
+      const data = document.getElementById('data').value;
+      const valor = document.getElementById('valor').value;
+
+      if (!descricao || !data || !valor) return;
+
+      contas.push({ descricao, data, valor });
+      salvarContas();
+      atualizarTabela();
+      form.reset();
+    });
+
+    atualizarTabela(); // carrega ao iniciar
+  </script>
+</body>
+</html>
