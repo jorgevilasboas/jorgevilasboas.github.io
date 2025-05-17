@@ -8,7 +8,9 @@
     input, button { padding: 8px; margin: 5px; }
     table { width: 100%; border-collapse: collapse; margin-top: 20px; }
     th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-    th { background-color: #f2f2f2; cursor: pointer; }
+    th { background-color: #f2f2f2; cursor: pointer; user-select: none; }
+    th.sort-asc::after { content: " ↑"; }
+    th.sort-desc::after { content: " ↓"; }
     tfoot td { font-weight: bold; }
     .center { text-align: center; }
   </style>
@@ -85,7 +87,7 @@
     }
 
     function atualizarTabela() {
-      ordenarContas(ordemAtual.coluna); // aplica a ordenação antes de exibir
+      ordenarContas(ordemAtual.coluna);
       tabelaCorpo.innerHTML = '';
 
       for (let i = 0; i < contas.length; i++) {
@@ -103,7 +105,19 @@
         tabelaCorpo.appendChild(row);
       }
 
+      atualizarSetasOrdenacao();
       atualizarTotal();
+    }
+
+    function atualizarSetasOrdenacao() {
+      headers.forEach(header => {
+        const coluna = header.getAttribute('data-sort');
+        header.classList.remove('sort-asc', 'sort-desc');
+
+        if (coluna === ordemAtual.coluna) {
+          header.classList.add(ordemAtual.direcao === 'asc' ? 'sort-asc' : 'sort-desc');
+        }
+      });
     }
 
     function atualizarTotal() {
@@ -151,7 +165,7 @@
       });
     });
 
-    atualizarTabela(); // exibe ao carregar
+    atualizarTabela(); // renderiza ao carregar
   </script>
 </body>
 </html>
