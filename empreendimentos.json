@@ -1,0 +1,949 @@
+{
+  "empreendimentos": [
+    {
+      "construtora": "STANZA",
+      "empreendimento": "JARDIM DAS MANGABEIRAS",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "jan/25"
+    },
+    {
+      "construtora": "STANZA",
+      "empreendimento": "RESIDENCIAL CAETÉ SERIGY",
+      "bairro": "FAROLANDIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "abr/24"
+    },
+    {
+      "construtora": "STANZA",
+      "empreendimento": "RESIDENCIAL JARDIM SERIGY",
+      "bairro": "FAROLANDIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "STANZA",
+      "empreendimento": "MARALTO",
+      "bairro": "COROA DO MEIO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "mai/26"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "LE VERT BOULEVARD",
+      "bairro": "FAROLANDIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "dez/22 e dez/24"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "AQUARELA PARK",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "set/23 e set/24"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "EVIDENCE JABOTIANA",
+      "bairro": "JABOTIANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "mar/26"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "MAISON DU SOLEIL",
+      "bairro": "ATALAIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "fev/26"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "PARQUE DAS CORES",
+      "bairro": "PIABETA - SOCORRO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "ago/25"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "PORTAL DAS CORES",
+      "bairro": "PIABETA - SOCORRO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "mai/26"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "POESIA ART HOME",
+      "bairro": "LUZIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "mar/25"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "PRESTIGE RESIDENCE",
+      "bairro": "JABOTIANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "VIVER ARUANA",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "jun/26"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "SUMMER BARRA",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/26"
+    },
+    {
+      "construtora": "UNIÃO",
+      "empreendimento": "RESIDENCIAL ELOISIO SOBRAL DA SILVEIRA",
+      "bairro": "SANTO ANTONIO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "abr/28"
+    },
+    {
+      "construtora": "URBANE",
+      "empreendimento": "SPOT RESIDENCE E BOULEVARD",
+      "bairro": "COROA DO MEIO",
+      "tipo": "STUDIO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "jul/26"
+    },
+    {
+      "construtora": "VERG",
+      "empreendimento": "CITTÁ JARDINS",
+      "bairro": "JARDINS",
+      "tipo": "STUDIO/APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "fev/28"
+    },
+    {
+      "construtora": "VICTORIA BRASIL",
+      "empreendimento": "MORADA DO LADO",
+      "bairro": "MOSQUEIRO",
+      "tipo": "CASA CONDOMINIO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "VICTORIA BRASIL",
+      "empreendimento": "MARAVISTA HOME BEACH",
+      "bairro": "MOSQUEIRO",
+      "tipo": "CASA E APARTAMENTO EM CONDOMINIO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "CONSULTAR"
+    },
+    {
+      "construtora": "VIVA",
+      "empreendimento": "VIVA MAIS BARRA",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "CASA CONDOMINIO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/26"
+    },
+    {
+      "construtora": "VIVA",
+      "empreendimento": "VIVA CLUBE DA ILHA BARRA",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "CASA CONDOMINIO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "dez/25"
+    },
+    {
+      "construtora": "MOVE",
+      "empreendimento": "MELIÁ RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "jun/26"
+    },
+    {
+      "construtora": "MRV",
+      "empreendimento": "PRAIA DE ATALAIA",
+      "bairro": "CAPUCHO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/24"
+    },
+    {
+      "construtora": "MRV",
+      "empreendimento": "ESPLENDORE",
+      "bairro": "FAROLANDIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/25"
+    },
+    {
+      "construtora": "MIRV",
+      "empreendimento": "ALAMEDA IMPERIAL",
+      "bairro": "MARIVAN",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "fev/27"
+    },
+    {
+      "construtora": "NEXTCASA",
+      "empreendimento": "BARRA VILLE RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "CASA CONDOMINIO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/27"
+    },
+    {
+      "construtora": "PRIMASA",
+      "empreendimento": "CORAL VILLAGE RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "jan/26"
+    },
+    {
+      "construtora": "PRIMASA",
+      "empreendimento": "VALES DO SUL",
+      "bairro": "MARIVAN",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "fev/26"
+    },
+    {
+      "construtora": "PRIMASA",
+      "empreendimento": "GOLDEN VILLAGE RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "mar/26"
+    },
+    {
+      "construtora": "PRIMASA",
+      "empreendimento": "GRAND SMART",
+      "bairro": "COROA DO MEIO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "abr/26"
+    },
+    {
+      "construtora": "PRIMASA",
+      "empreendimento": "SOHO RESIDENCE",
+      "bairro": "COROA DO MEIO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "mai/26"
+    },
+    {
+      "construtora": "PRIMASA",
+      "empreendimento": "TROPICAL VILLAGE RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "jun/26"
+    },
+    {
+      "construtora": "SANTA MARIA",
+      "empreendimento": "BYSIDE RESIDENCE",
+      "bairro": "COROA DO MEIO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "jul/26"
+    },
+    {
+      "construtora": "SANTA MARIA",
+      "empreendimento": "EVEREST RESIDENCE",
+      "bairro": "JARDINS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "ago/26"
+    },
+    {
+      "construtora": "SANTA MARIA",
+      "empreendimento": "SKY RESIDENCE",
+      "bairro": "ATALAIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "abr/24"
+    },
+    {
+      "construtora": "SANTA MARIA",
+      "empreendimento": "JAIME GUSMÃO",
+      "bairro": "JARDINS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "SANTA MARIA",
+      "empreendimento": "TRIANON JARDINS",
+      "bairro": "JARDINS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "SANTA MARIA",
+      "empreendimento": "INTERLAGOS RESIDENCE",
+      "bairro": "ARUANA",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "abr/25"
+    },
+    {
+      "construtora": "SANTA MARIA",
+      "empreendimento": "EPIC RESIDENCE",
+      "bairro": "ATALAIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "mar/27"
+    },
+    {
+      "construtora": "STANZA",
+      "empreendimento": "VISTA ARIANA",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "set/24"
+    },
+    {
+      "construtora": "STANZA",
+      "empreendimento": "RECANTO SANTA MARIA",
+      "bairro": "MARIVAN",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "set/26"
+    },
+    {
+      "construtora": "STANZA",
+      "empreendimento": "LUZITA",
+      "bairro": "LUZIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "abr/26"
+    },
+    {
+      "construtora": "IMPACTO",
+      "empreendimento": "MILANO RESIDENCE",
+      "bairro": "COROA DO MEIO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "jul/25"
+    },
+    {
+      "construtora": "IMPACTO",
+      "empreendimento": "MIRANTE DO MAR",
+      "bairro": "ATALAIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "fev/26"
+    },
+    {
+      "construtora": "IMPACTO",
+      "empreendimento": "VILLA DOS COQUEIROS",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "nov/26"
+    },
+    {
+      "construtora": "IMPACTO",
+      "empreendimento": "MACAU BEACH RESIDENCE",
+      "bairro": "COROA DO MEIO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO/APOIO A PRODUÇÃO",
+      "entrega": "dez/27"
+    },
+    {
+      "construtora": "IMPACTO",
+      "empreendimento": "SILVIA FONSECA DINIZ",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "dez/28"
+    },
+    {
+      "construtora": "JFILHOS",
+      "empreendimento": "PARQUE DAS LARANJEIRAS",
+      "bairro": "COLONIA 13 - LAGARTO",
+      "tipo": "CASA",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "???"
+    },
+    {
+      "construtora": "JOTANUNES",
+      "empreendimento": "ATHOS RESIDENCE",
+      "bairro": "PONTO NOVO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "JOTANUNES",
+      "empreendimento": "MARBELLO RESIDENCE",
+      "bairro": "COROA DO MEIO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "nov/25"
+    },
+    {
+      "construtora": "JOTANUNES",
+      "empreendimento": "PARK BARRA MAIS VIVER",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "jul/24"
+    },
+    {
+      "construtora": "JOTANUNES",
+      "empreendimento": "MIRANTE MAIS VIVER",
+      "bairro": "SOLEDADE",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "out/26"
+    },
+    {
+      "construtora": "JOTANUNES",
+      "empreendimento": "COSTA MAR MAIS VIVER",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "nov/26"
+    },
+    {
+      "construtora": "JOTANUNES",
+      "empreendimento": "ESTRELA DO MAR MAIS VIVER",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/27"
+    },
+    {
+      "construtora": "JOTANUNES",
+      "empreendimento": "TERRAÇOS RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "ago/28"
+    },
+    {
+      "construtora": "JOTANUNES",
+      "empreendimento": "BELO RIO MAIS VIVER",
+      "bairro": "SOLEDADE",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "abr/28"
+    },
+    {
+      "construtora": "LAREDO",
+      "empreendimento": "VILLAREDO BARRA",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "LAREDO",
+      "empreendimento": "PORTO POXIM",
+      "bairro": "EDUARDO GOMES",
+      "tipo": "LOTEAMENTO ABERTO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "LAREDO",
+      "empreendimento": "MARAU MAR RESIDENCE",
+      "bairro": "MOSQUEIRO",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "nov/23"
+    },
+    {
+      "construtora": "LAREDO",
+      "empreendimento": "VILLAREDO RIO",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "mar/27"
+    },
+    {
+      "construtora": "LAREDO",
+      "empreendimento": "VILLAREDO ARUANA",
+      "bairro": "ARUANA",
+      "tipo": "LOTEAMENTO DE ACESSO CONTROLADO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "jun/25"
+    },
+    {
+      "construtora": "MOURA DUBEUX",
+      "empreendimento": "CASA JARDINS",
+      "bairro": "JARDINS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "jul/26"
+    },
+    {
+      "construtora": "MOURA DUBEUX",
+      "empreendimento": "CONCEPT JARDINS",
+      "bairro": "JARDINS",
+      "tipo": "STUDIO/APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "ago/27"
+    },
+    {
+      "construtora": "CONSTRUCENTER",
+      "empreendimento": "RIVIERA BEACH RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "dez/27"
+    },
+    {
+      "construtora": "CONSTRUCENTER",
+      "empreendimento": "PARK DOS COQUEIROS",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTEAMENTO ABERTO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "jun/27"
+    },
+    {
+      "construtora": "CRC",
+      "empreendimento": "ARUANA GARDEN RESIDENCE",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "jun/27"
+    },
+    {
+      "construtora": "DICON",
+      "empreendimento": "MORADAS DA BARRA",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "ago/25"
+    },
+    {
+      "construtora": "DICON",
+      "empreendimento": "MORADAS DA ARUANA",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "fev/27"
+    },
+    {
+      "construtora": "EMPE",
+      "empreendimento": "MANSAO PRIME PARK",
+      "bairro": "FAROLANDIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "EMPE",
+      "empreendimento": "ONE LIFE",
+      "bairro": "13 DE JULHO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "abr/26"
+    },
+    {
+      "construtora": "FFB",
+      "empreendimento": "SOLAR NOVA ARUANA",
+      "bairro": "SANTA TEREZA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "FFB",
+      "empreendimento": "LUNAR NOVA ARUANA",
+      "bairro": "SANTA TEREZA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "jan/26"
+    },
+    {
+      "construtora": "FB",
+      "empreendimento": "RESERVA PORTORIO",
+      "bairro": "MOSQUEIRO",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "mar/25"
+    },
+    {
+      "construtora": "FB",
+      "empreendimento": "DUMONT",
+      "bairro": "COROA DO MEIO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "mar/27"
+    },
+    {
+      "construtora": "GL",
+      "empreendimento": "VILLA DOS SONHOS",
+      "bairro": "SANTA MARIA",
+      "tipo": "CASA CONDOMINIO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "nov/24"
+    },
+    {
+      "construtora": "GL",
+      "empreendimento": "VILLA DA CONQUISTA",
+      "bairro": "SANTA MARIA",
+      "tipo": "CASA CONDOMINIO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "mar/26"
+    },
+    {
+      "construtora": "GL",
+      "empreendimento": "VILLA DA GLORIA",
+      "bairro": "SANTA MARIA",
+      "tipo": "CASA CONDOMINIO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/26"
+    },
+    {
+      "construtora": "GL",
+      "empreendimento": "VILLA DO TRIUNFO",
+      "bairro": "SANTA MARIA",
+      "tipo": "CASA CONDOMINIO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/27"
+    },
+    {
+      "construtora": "GRUPO CASTRO LIMA",
+      "empreendimento": "TAHPA HOME RESORT",
+      "bairro": "ARUANA",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "GRUPO CASTRO LIMA",
+      "empreendimento": "RESERVA PARK",
+      "bairro": "FAROLANDIA",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "mar/24"
+    },
+    {
+      "construtora": "HD",
+      "empreendimento": "BELA VISTA",
+      "bairro": "PORTO DANTAS",
+      "tipo": "CASA CONDOMINIO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "ICON",
+      "empreendimento": "CASAMAR RESIDENCE",
+      "bairro": "COROA DO MEIO",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "dez/25"
+    },
+    {
+      "construtora": "IMPACTO",
+      "empreendimento": "VILLA NATUREZA",
+      "bairro": "PORTO DANTAS",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "ago/24"
+    },
+    {
+      "construtora": "IMPACTO",
+      "empreendimento": "PORTO SOLLARE",
+      "bairro": "INACIO BARBOSA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "out/24"
+    },
+    {
+      "construtora": "AC",
+      "empreendimento": "ARUANA PRAIA RESIDENCE",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "AC",
+      "empreendimento": "ARUANA PRIME RESIDENCE",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/24"
+    },
+    {
+      "construtora": "AC",
+      "empreendimento": "ARUANA PARK RESIDENCE",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/25"
+    },
+    {
+      "construtora": "AC",
+      "empreendimento": "SANTA LUCIA PARK",
+      "bairro": "SANTA LUCIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/26"
+    },
+    {
+      "construtora": "AC",
+      "empreendimento": "GRAND VIEW RESIDENCE",
+      "bairro": "ARUANA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "MCMV/SBPE",
+      "financiamento": "ASSOCIATIVO",
+      "entrega": "dez/27"
+    },
+    {
+      "construtora": "ALPHAVILLE",
+      "empreendimento": "TERRAS ALPHAVILLE 1",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "ALPHAVILLE",
+      "empreendimento": "TERRAS ALPHAVILLE 2",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "ALPHAVILLE",
+      "empreendimento": "TERRAS ALPHAVILLE 3",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "",
+      "financiamento": "ABORTADO",
+      "entrega": ""
+    },
+    {
+      "construtora": "ALPHAVILLE",
+      "empreendimento": "ALPHAVILLE ARACAJU",
+      "bairro": "ARUANA",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "",
+      "financiamento": "ABORTADO",
+      "entrega": ""
+    },
+    {
+      "construtora": "CELI",
+      "empreendimento": "RESIDENCIAL DEL REY",
+      "bairro": "FAROLANDIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "CELI",
+      "empreendimento": "URBANUS LUZIA",
+      "bairro": "LUZIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "mar/24"
+    },
+    {
+      "construtora": "CELI",
+      "empreendimento": "RESERVA ALAMEDA",
+      "bairro": "LUZIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "CELI",
+      "empreendimento": "GARDEN VILLAGE",
+      "bairro": "FAROLANDIA",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "out/23"
+    },
+    {
+      "construtora": "CELI",
+      "empreendimento": "BARRA GARDEN",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "CASA CONDOMINIO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "jun/24"
+    },
+    {
+      "construtora": "CELI",
+      "empreendimento": "ARBORESIDENCE",
+      "bairro": "FAROLANDIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "ago/27"
+    },
+    {
+      "construtora": "CONSTREN",
+      "empreendimento": "DUETTO RESIDENCE",
+      "bairro": "FAROLANDIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "set/25"
+    },
+    {
+      "construtora": "CONSTREN",
+      "empreendimento": "PORTILLORESIDENCE",
+      "bairro": "ATALAIA",
+      "tipo": "APARTAMENTO",
+      "modalidade": "SBPE",
+      "financiamento": "APOIO A PRODUÇÃO",
+      "entrega": "nov/27"
+    },
+    {
+      "construtora": "CONSTRUCENTER",
+      "empreendimento": "PADANG BEACH RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "PRONTO"
+    },
+    {
+      "construtora": "CONSTRUCENTER",
+      "empreendimento": "SUNSET BEACH RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "jul/24"
+    },
+    {
+      "construtora": "CONSTRUCENTER",
+      "empreendimento": "MALIBU BEACH RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "mai/26"
+    },
+    {
+      "construtora": "CONSTRUCENTER",
+      "empreendimento": "COPACABANA BEACH RESIDENCE",
+      "bairro": "BARRA DOS COQUEIROS",
+      "tipo": "LOTE CONDOMINIO",
+      "modalidade": "PARCELAMENTO DIRETO",
+      "financiamento": "SEM FINANCIAMENTO BANCÁRIO",
+      "entrega": "mai/27"
+    }
+  ]
+} 
