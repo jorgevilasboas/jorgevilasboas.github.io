@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Class - Daily Routines: Today and Yesterday</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .header-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 50px;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+
+        .section-icon {
+            font-size: 1.2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f8f9ff;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .vocab-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .vocab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .vocab-card h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .vocab-card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .vocab-card li {
+            padding: 5px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .vocab-card li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .example-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .example-box strong {
+            color: #667eea;
+        }
+
+        .negative-box {
+            background: #fff5f5;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .negative-box strong {
+            color: #dc3545;
+        }
+
+        .question-box {
+            background: #f0fff4;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .question-box strong {
+            color: #28a745;
+        }
+
+        .conversation {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #667eea;
+        }
+
+        .conversation-line {
+            margin: 15px 0;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .student-a {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            margin-left: 0;
+        }
+
+        .student-b {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            margin-left: 20px;
+        }
+
+        .speaker {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .find-someone {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .find-item {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px dashed #ffc107;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .find-item input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .exercise {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .exercise-question {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .exercise-question strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .answer-line {
+            border-bottom: 2px solid #667eea;
+            height: 30px;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .grammar-diagram {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .grammar-diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .icons-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .icons-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .homework {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .homework h2 {
+            color: #d84315;
+            border-bottom-color: #d84315;
+        }
+
+        .homework-example {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #d84315;
+        }
+
+        .homework-example ol {
+            margin-left: 20px;
+        }
+
+        .homework-example li {
+            margin: 8px 0;
+        }
+
+        footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 2px solid #eee;
+        }
+
+        .print-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 20px 0;
+            cursor: pointer;
+            border: none;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        .print-button:hover {
+            background: #764ba2;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .print-button {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            main {
+                padding: 20px;
+            }
+            .vocab-grid {
+                grid-template-columns: 1fr;
+            }
+            .student-b {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌅 English Class</h1>
+            <p>Daily Routines: Today and Yesterday</p>
+            <div class="header-info">
+                <div class="info-badge">⏱️ Duration: 2 Hours</div>
+                <div class="info-badge">📚 Level: Beginner</div>
+                <div class="info-badge">🎯 Focus: Present & Past Tense</div>
+            </div>
+        </header>
+
+        <main>
+            <!-- SECTION 1: DAILY ROUTINE VERBS -->
+            <section id="section1">
+                <h2><span class="section-icon">1️⃣</span> Daily Routine Verbs</h2>
+                <p style="margin: 15px 0; font-size: 1.05em;">Master the essential verbs for talking about daily activities. These verbs are fundamental for describing routines in both present and past tense.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Infinitive</th>
+                            <th>Simple Past</th>
+                            <th>Past Participle</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Wake up</strong></td>
+                            <td>Woke up</td>
+                            <td>Woken up</td>
+                            <td>I woke up at 6 a.m.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Get up</strong></td>
+                            <td>Got up</td>
+                            <td>Got/Gotten</td>
+                            <td>She got up quickly.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Brush</strong></td>
+                            <td>Brushed</td>
+                            <td>Brushed</td>
+                            <td>I brushed my teeth.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wash</strong></td>
+                            <td>Washed</td>
+                            <td>Washed</td>
+                            <td>He washed his hands.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Take a shower</strong></td>
+                            <td>Took</td>
+                            <td>Taken</td>
+                            <td>I took a shower yesterday.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Eat</strong></td>
+                            <td>Ate</td>
+                            <td>Eaten</td>
+                            <td>We ate breakfast together.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Drink</strong></td>
+                            <td>Drank</td>
+                            <td>Drunk</td>
+                            <td>She drank coffee this morning.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Go</strong></td>
+                            <td>Went</td>
+                            <td>Gone</td>
+                            <td>They went to work by car.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Work</strong></td>
+                            <td>Worked</td>
+                            <td>Worked</td>
+                            <td>I worked all day yesterday.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Study</strong></td>
+                            <td>Studied</td>
+                            <td>Studied</td>
+                            <td>He studied English last night.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Drive</strong></td>
+                            <td>Drove</td>
+                            <td>Driven</td>
+                            <td>She drove to the office.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Watch</strong></td>
+                            <td>Watched</td>
+                            <td>Watched</td>
+                            <td>We watched TV last night.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cook</strong></td>
+                            <td>Cooked</td>
+                            <td>Cooked</td>
+                            <td>I cooked dinner yesterday.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clean</strong></td>
+                            <td>Cleaned</td>
+                            <td>Cleaned</td>
+                            <td>They cleaned the house.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sleep</strong></td>
+                            <td>Slept</td>
+                            <td>Slept</td>
+                            <td>I slept well last night.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SECTION 2: EVERYDAY VOCABULARY -->
+            <section id="section2">
+                <h2><span class="section-icon">2️⃣</span> Everyday Vocabulary</h2>
+                <p style="margin: 15px 0; font-size: 1.05em;">Learn the vocabulary related to daily routines, organized by location. These words will help you describe your daily activities in detail.</p>
+                
+                <div class="icons-section">
+                    <img src="/home/ubuntu/household_items.png" alt="Household Items">
+                </div>
+
+                <div class="vocab-grid">
+                    <div class="vocab-card">
+                        <h4>🚿 Bathroom</h4>
+                        <ul>
+                            <li>Toothbrush</li>
+                            <li>Toothpaste</li>
+                            <li>Soap</li>
+                            <li>Shampoo</li>
+                            <li>Razor</li>
+                            <li>Shower</li>
+                            <li>Mirror</li>
+                            <li>Toilet paper</li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-card">
+                        <h4>🍳 Kitchen</h4>
+                        <ul>
+                            <li>Coffee</li>
+                            <li>Milk</li>
+                            <li>Bread</li>
+                            <li>Plate</li>
+                            <li>Spoon</li>
+                            <li>Fork</li>
+                            <li>Knife</li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-card">
+                        <h4>🏠 Home</h4>
+                        <ul>
+                            <li>Bed</li>
+                            <li>Cell phone</li>
+                            <li>Computer</li>
+                            <li>Television (TV)</li>
+                            <li>Car</li>
+                            <li>Keys</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="icons-section">
+                    <img src="/home/ubuntu/routine_icons.png" alt="Daily Routine Actions">
+                </div>
+            </section>
+
+            <!-- SECTION 3: SIMPLE PRESENT -->
+            <section id="section3">
+                <h2><span class="section-icon">3️⃣</span> Simple Present Tense</h2>
+                <p style="margin: 15px 0; font-size: 1.05em;">Use the Simple Present to talk about habits, routines, and things that happen regularly.</p>
+
+                <h3>📐 Grammar Structure</h3>
+                <div class="grammar-diagram">
+                    <img src="/home/ubuntu/present_grammar.png" alt="Present Tense Structure">
+                </div>
+
+                <h3>✅ Affirmative Examples</h3>
+                <div class="example-box">
+                    <strong>Subject + Base Verb + Complement</strong><br><br>
+                    • I wake up at 6 a.m.<br>
+                    • I brush my teeth every morning.<br>
+                    • I take a shower before work.<br>
+                    • I drink coffee in the morning.<br>
+                    • I go to work by car.<br>
+                    • I work from Monday to Friday.<br>
+                    • I study English every week.<br>
+                    • I watch TV at night.<br>
+                    • I cook dinner for my family.<br>
+                    • I sleep at 10 p.m.
+                </div>
+
+                <h3>❌ Negative Form</h3>
+                <div class="negative-box">
+                    <strong>Subject + do/does + NOT + Base Verb + Complement</strong><br><br>
+                    • I <strong>do not (don't)</strong> wake up early.<br>
+                    • I <strong>do not</strong> drink coffee.<br>
+                    • I <strong>do not</strong> watch TV every day.<br>
+                    • He <strong>does not (doesn't)</strong> work on weekends.
+                </div>
+
+                <h3>❓ Questions</h3>
+                <div class="question-box">
+                    <strong>Do/Does + Subject + Base Verb + Complement?</strong><br><br>
+                    • <strong>Do</strong> you wake up early?<br>
+                    • <strong>Do</strong> you drink coffee?<br>
+                    • <strong>Do</strong> you work every day?<br>
+                    • <strong>Do</strong> you study English?<br>
+                    • <strong>Do</strong> you cook at home?<br>
+                    • <strong>Does</strong> he work on weekends?
+                </div>
+
+                <h3>💬 Short Answers</h3>
+                <div class="example-box">
+                    • Yes, I <strong>do</strong>. / No, I <strong>don't</strong>.<br>
+                    • Yes, he <strong>does</strong>. / No, he <strong>doesn't</strong>.
+                </div>
+            </section>
+
+            <!-- SECTION 4: SIMPLE PAST -->
+            <section id="section4">
+                <h2><span class="section-icon">4️⃣</span> Simple Past Tense</h2>
+                <p style="margin: 15px 0; font-size: 1.05em;">Use the Simple Past to talk about completed actions that happened at a specific time in the past.</p>
+
+                <h3>📐 Grammar Structure</h3>
+                <div class="grammar-diagram">
+                    <img src="/home/ubuntu/past_grammar.png" alt="Past Tense Structure">
+                </div>
+
+                <h3>✅ Affirmative Examples</h3>
+                <div class="example-box">
+                    <strong>Subject + Past Verb + Complement</strong><br><br>
+                    • I <strong>woke up</strong> at 6 a.m. yesterday.<br>
+                    • I <strong>brushed</strong> my teeth after breakfast.<br>
+                    • I <strong>took</strong> a shower before work.<br>
+                    • I <strong>drank</strong> coffee in the morning.<br>
+                    • I <strong>went</strong> to work by car.<br>
+                    • I <strong>worked</strong> all day.<br>
+                    • I <strong>studied</strong> English yesterday.<br>
+                    • I <strong>watched</strong> TV last night.<br>
+                    • I <strong>cooked</strong> dinner yesterday.<br>
+                    • I <strong>slept</strong> at 11 p.m.
+                </div>
+
+                <h3>❌ Negative Form</h3>
+                <div class="negative-box">
+                    <strong>Subject + did + NOT + Base Verb + Complement</strong><br><br>
+                    • I <strong>did not (didn't)</strong> wake up early.<br>
+                    • I <strong>didn't</strong> drink coffee.<br>
+                    • I <strong>didn't</strong> work yesterday.<br>
+                    • She <strong>didn't</strong> cook dinner last night.
+                </div>
+
+                <h3>❓ Questions</h3>
+                <div class="question-box">
+                    <strong>Did + Subject + Base Verb + Complement?</strong><br><br>
+                    • <strong>Did</strong> you wake up early yesterday?<br>
+                    • <strong>Did</strong> you drink coffee yesterday?<br>
+                    • <strong>Did</strong> you work yesterday?<br>
+                    • <strong>Did</strong> you study English yesterday?<br>
+                    • <strong>Did</strong> you cook dinner yesterday?<br>
+                    • <strong>Did</strong> she go to work by car?
+                </div>
+
+                <h3>💬 Short Answers</h3>
+                <div class="example-box">
+                    • Yes, I <strong>did</strong>. / No, I <strong>didn't</strong>.<br>
+                    • Yes, she <strong>did</strong>. / No, she <strong>didn't</strong>.
+                </div>
+            </section>
+
+            <!-- SECTION 5: CONVERSATION PRACTICE - TODAY -->
+            <section id="section5">
+                <h2><span class="section-icon">5️⃣</span> Conversation Practice - Today (Simple Present)</h2>
+                <p style="margin: 15px 0; font-size: 1.05em;">Practice speaking about your daily routine using the Simple Present tense.</p>
+
+                <div class="conversation">
+                    <div class="conversation-line student-a">
+                        <div class="speaker">👤 Student A:</div>
+                        <strong>What time do you wake up?</strong>
+                    </div>
+
+                    <div class="conversation-line student-b">
+                        <div class="speaker">👥 Student B:</div>
+                        I wake up at <strong>________</strong>.
+                    </div>
+
+                    <div class="conversation-line student-a">
+                        <div class="speaker">👤 Student A:</div>
+                        <strong>Do you drink coffee?</strong>
+                    </div>
+
+                    <div class="conversation-line student-b">
+                        <div class="speaker">👥 Student B:</div>
+                        Yes, I do. / No, I don't.
+                    </div>
+
+                    <div class="conversation-line student-a">
+                        <div class="speaker">👤 Student A:</div>
+                        <strong>Do you work or study?</strong>
+                    </div>
+
+                    <div class="conversation-line student-b">
+                        <div class="speaker">👥 Student B:</div>
+                        I work as a <strong>________</strong>.<br>
+                        OR<br>
+                        I study <strong>________</strong>.
+                    </div>
+
+                    <div class="conversation-line student-a">
+                        <div class="speaker">👤 Student A:</div>
+                        <strong>What do you do at night?</strong>
+                    </div>
+
+                    <div class="conversation-line student-b">
+                        <div class="speaker">👥 Student B:</div>
+                        I watch TV.<br>
+                        I study English.<br>
+                        I cook dinner.<br>
+                        I sleep early.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: CONVERSATION PRACTICE - YESTERDAY -->
+            <section id="section6">
+                <h2><span class="section-icon">6️⃣</span> Conversation Practice - Yesterday (Simple Past)</h2>
+                <p style="margin: 15px 0; font-size: 1.05em;">Practice speaking about what you did yesterday using the Simple Past tense.</p>
+
+                <div class="conversation">
+                    <div class="conversation-line student-a">
+                        <div class="speaker">👤 Student A:</div>
+                        <strong>What time did you wake up yesterday?</strong>
+                    </div>
+
+                    <div class="conversation-line student-b">
+                        <div class="speaker">👥 Student B:</div>
+                        I woke up at <strong>________</strong>.
+                    </div>
+
+                    <div class="conversation-line student-a">
+                        <div class="speaker">👤 Student A:</div>
+                        <strong>What did you eat for breakfast?</strong>
+                    </div>
+
+                    <div class="conversation-line student-b">
+                        <div class="speaker">👥 Student B:</div>
+                        I ate <strong>________</strong>.
+                    </div>
+
+                    <div class="conversation-line student-a">
+                        <div class="speaker">👤 Student A:</div>
+                        <strong>Did you work yesterday?</strong>
+                    </div>
+
+                    <div class="conversation-line student-b">
+                        <div class="speaker">👥 Student B:</div>
+                        Yes, I did.<br>
+                        No, I didn't.
+                    </div>
+
+                    <div class="conversation-line student-a">
+                        <div class="speaker">👤 Student A:</div>
+                        <strong>What did you do last night?</strong>
+                    </div>
+
+                    <div class="conversation-line student-b">
+                        <div class="speaker">👥 Student B:</div>
+                        I watched TV.<br>
+                        I studied English.<br>
+                        I cooked dinner.<br>
+                        I slept early.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 7: FIND SOMEONE WHO... -->
+            <section id="section7">
+                <h2><span class="section-icon">7️⃣</span> Find Someone Who... (Interactive Activity)</h2>
+                <p style="margin: 15px 0; font-size: 1.05em;">Walk around the classroom and find someone who matches each description. Ask questions and mark the boxes when you find them!</p>
+
+                <div class="find-someone">
+                    <div class="find-item">
+                        <input type="checkbox" id="item1">
+                        <label for="item1">Woke up before 6 a.m.</label>
+                    </div>
+                    <div class="find-item">
+                        <input type="checkbox" id="item2">
+                        <label for="item2">Drank coffee today</label>
+                    </div>
+                    <div class="find-item">
+                        <input type="checkbox" id="item3">
+                        <label for="item3">Went to work by car</label>
+                    </div>
+                    <div class="find-item">
+                        <input type="checkbox" id="item4">
+                        <label for="item4">Studied English yesterday</label>
+                    </div>
+                    <div class="find-item">
+                        <input type="checkbox" id="item5">
+                        <label for="item5">Watched TV last night</label>
+                    </div>
+                    <div class="find-item">
+                        <input type="checkbox" id="item6">
+                        <label for="item6">Cooked dinner yesterday</label>
+                    </div>
+                    <div class="find-item">
+                        <input type="checkbox" id="item7">
+                        <label for="item7">Slept after 11 p.m.</label>
+                    </div>
+                    <div class="find-item">
+                        <input type="checkbox" id="item8">
+                        <label for="item8">Has a car</label>
+                    </div>
+                    <div class="find-item">
+                        <input type="checkbox" id="item9">
+                        <label for="item9">Works on weekends</label>
+                    </div>
+                    <div class="find-item">
+                        <input type="checkbox" id="item10">
+                        <label for="item10">Likes coffee</label>
+                    </div>
+                </div>
+
+                <h3>💬 Questions to Ask:</h3>
+                <div class="example-box">
+                    • Did you wake up before 6 a.m.?<br>
+                    • Did you drink coffee today?<br>
+                    • Did you study English yesterday?<br>
+                    • Did you cook dinner yesterday?<br>
+                    • Do you work on weekends?<br>
+                    • Do you like coffee?
+                </div>
+            </section>
+
+            <!-- SECTION 8: FINAL EXERCISE -->
+            <section id="section8">
+                <h2><span class="section-icon">8️⃣</span> Final Exercise - Comprehensive Review</h2>
+                <p style="margin: 15px 0; font-size: 1.05em;">Answer the following questions in complete sentences. This exercise covers both Simple Present and Simple Past tenses.</p>
+
+                <div class="exercise">
+                    <div class="exercise-question">
+                        <strong>1. What time do you wake up?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="exercise-question">
+                        <strong>2. Do you brush your teeth after breakfast?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="exercise-question">
+                        <strong>3. What do you drink in the morning?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="exercise-question">
+                        <strong>4. Do you work or study?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="exercise-question">
+                        <strong>5. How do you go to work/school?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="exercise-question">
+                        <strong>6. What time did you wake up yesterday?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="exercise-question">
+                        <strong>7. What did you eat for breakfast yesterday?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="exercise-question">
+                        <strong>8. Did you work yesterday?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="exercise-question">
+                        <strong>9. Did you watch TV last night?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="exercise-question">
+                        <strong>10. What did you do last night?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HOMEWORK -->
+            <section id="homework" class="homework">
+                <h2><span class="section-icon">📝</span> Homework Assignment</h2>
+                <p style="margin: 15px 0; font-size: 1.05em;">Complete these assignments to reinforce what you've learned in class.</p>
+
+                <h3 style="color: #d84315;">Task 1: Write 5 sentences about your daily routine</h3>
+                <p style="margin: 10px 0;">Use the Simple Present tense to describe what you do every day.</p>
+                <div class="homework-example">
+                    <strong>Example:</strong>
+                    <ol>
+                        <li>I wake up at 6 a.m.</li>
+                        <li>I brush my teeth.</li>
+                        <li>I drink coffee.</li>
+                        <li>I go to work.</li>
+                        <li>I sleep at 10 p.m.</li>
+                    </ol>
+                </div>
+
+                <h3 style="color: #d84315;">Task 2: Write 5 sentences about what you did yesterday</h3>
+                <p style="margin: 10px 0;">Use the Simple Past tense to describe your activities from yesterday.</p>
+                <div class="homework-example">
+                    <strong>Example:</strong>
+                    <ol>
+                        <li>I woke up at 6 a.m.</li>
+                        <li>I brushed my teeth.</li>
+                        <li>I drank coffee.</li>
+                        <li>I worked all day.</li>
+                        <li>I watched TV at night.</li>
+                    </ol>
+                </div>
+
+                <h3 style="color: #d84315;">Task 3: Interview a classmate</h3>
+                <p style="margin: 10px 0;">Ask your classmate at least 5 questions about their daily routine and their activities yesterday. Write down their answers.</p>
+                <div class="homework-example">
+                    <strong>Questions to ask:</strong>
+                    <ol>
+                        <li>What time do you wake up?</li>
+                        <li>What do you do in the morning?</li>
+                        <li>Do you work or study?</li>
+                        <li>What did you do yesterday?</li>
+                        <li>What did you do last night?</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- CALL TO ACTION -->
+            <div style="text-align: center; margin: 40px 0;">
+                <button class="print-button" onclick="window.print()">🖨️ Print This Lesson</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>English Class for Beginners - Daily Routines Lesson</p>
+            <p>Level: Beginner | Duration: 2 Hours | Created for ESL Students</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2024 English Learning Materials | All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>
