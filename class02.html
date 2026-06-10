@@ -91,6 +91,14 @@
             margin: 25px 0 15px 0;
         }
 
+        .translation {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+            display: block;
+            margin-top: 2px;
+        }
+
         .section-icon {
             font-size: 1.2em;
         }
@@ -156,13 +164,18 @@
         }
 
         .vocab-card li {
-            padding: 5px 0;
+            padding: 8px 0;
             color: #555;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vocab-card li strong {
             display: flex;
             align-items: center;
         }
 
-        .vocab-card li:before {
+        .vocab-card li strong:before {
             content: "👨‍👩‍👧";
             margin-right: 10px;
         }
@@ -181,6 +194,7 @@
             padding: 20px;
             margin: 20px 0;
             border-radius: 10px;
+            overflow-x: auto;
         }
 
         .exercise {
@@ -192,8 +206,8 @@
         }
 
         .quiz-question {
-            margin-bottom: 20px;
-            padding: 15px;
+            margin-bottom: 25px;
+            padding: 20px;
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -202,20 +216,23 @@
         .quiz-options {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 12px;
+            margin-top: 15px;
         }
 
         .quiz-option {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
         }
 
         .quiz-option:hover {
-            background: #f0f0f0;
+            background: #f8f9fa;
+            border-color: #2575fc;
         }
 
         .quiz-option.selected {
@@ -228,25 +245,34 @@
             background: #6a11cb;
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
+            padding: 15px 30px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 1.1em;
             margin-top: 20px;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-check:hover {
+            background: #5a0eb1;
         }
 
         #score-display {
-            margin-top: 20px;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 8px;
             font-weight: bold;
-            font-size: 1.2em;
-            color: #2575fc;
+            font-size: 1.3em;
+            text-align: center;
             display: none;
         }
 
         .video-container {
             margin-top: 40px;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             background: #f0f2f5;
             border-radius: 10px;
         }
@@ -255,11 +281,11 @@
             display: inline-block;
             background: #ff0000;
             color: white;
-            padding: 15px 30px;
-            border-radius: 30px;
+            padding: 15px 40px;
+            border-radius: 35px;
             text-decoration: none;
             font-weight: bold;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background 0.3s;
         }
 
         .video-link:hover {
@@ -286,7 +312,7 @@
     <div class="container">
         <header>
             <h1>👨‍👩‍👧‍👦 English Class 02</h1>
-            <p>Family Members & Relationships</p>
+            <p>Family Members & Relationships | Membros da Família e Relacionamentos</p>
             <div class="header-info">
                 <div class="info-badge">⏱️ Duration: 2 Hours</div>
                 <div class="info-badge">📚 Level: Beginner</div>
@@ -297,38 +323,38 @@
         <main>
             <!-- SECTION 1: FAMILY VOCABULARY -->
             <section id="vocabulary">
-                <h2><span class="section-icon">1️⃣</span> Family Vocabulary</h2>
-                <p>Learn how to talk about your family members and relatives.</p>
+                <h2><span class="section-icon">1️⃣</span> Family Vocabulary | Vocabulário de Família</h2>
+                <p>Learn how to talk about your family members and relatives. (Aprenda a falar sobre os membros da sua família e parentes.)</p>
                 
                 <div class="vocab-grid">
                     <div class="vocab-card">
-                        <h4>Immediate Family</h4>
+                        <h4>Immediate Family | Família Imediata</h4>
                         <ul>
-                            <li>Father (Dad)</li>
-                            <li>Mother (Mom)</li>
-                            <li>Parents</li>
-                            <li>Brother</li>
-                            <li>Sister</li>
-                            <li>Siblings</li>
+                            <li><strong>Father (Dad)</strong> <span class="translation">Pai</span></li>
+                            <li><strong>Mother (Mom)</strong> <span class="translation">Mãe</span></li>
+                            <li><strong>Parents</strong> <span class="translation">Pais (pai e mãe)</span></li>
+                            <li><strong>Brother</strong> <span class="translation">Irmão</span></li>
+                            <li><strong>Sister</strong> <span class="translation">Irmã</span></li>
+                            <li><strong>Siblings</strong> <span class="translation">Irmãos (em geral)</span></li>
                         </ul>
                     </div>
                     <div class="vocab-card">
-                        <h4>Extended Family</h4>
+                        <h4>Extended Family | Família Estendida</h4>
                         <ul>
-                            <li>Grandfather (Grandpa)</li>
-                            <li>Grandmother (Grandma)</li>
-                            <li>Uncle / Aunt</li>
-                            <li>Cousin</li>
-                            <li>Nephew / Niece</li>
+                            <li><strong>Grandfather (Grandpa)</strong> <span class="translation">Avô</span></li>
+                            <li><strong>Grandmother (Grandma)</strong> <span class="translation">Avó</span></li>
+                            <li><strong>Uncle / Aunt</strong> <span class="translation">Tio / Tia</span></li>
+                            <li><strong>Cousin</strong> <span class="translation">Primo / Prima</span></li>
+                            <li><strong>Nephew / Niece</strong> <span class="translation">Sobrinho / Sobrinha</span></li>
                         </ul>
                     </div>
                     <div class="vocab-card">
-                        <h4>Relationships</h4>
+                        <h4>Relationships | Relacionamentos</h4>
                         <ul>
-                            <li>Husband / Wife</li>
-                            <li>Son / Daughter</li>
-                            <li>Children</li>
-                            <li>Grandson / Granddaughter</li>
+                            <li><strong>Husband / Wife</strong> <span class="translation">Marido / Esposa</span></li>
+                            <li><strong>Son / Daughter</strong> <span class="translation">Filho / Filha</span></li>
+                            <li><strong>Children</strong> <span class="translation">Filhos (crianças)</span></li>
+                            <li><strong>Grandson / Granddaughter</strong> <span class="translation">Neto / Neta</span></li>
                         </ul>
                     </div>
                 </div>
@@ -336,49 +362,49 @@
 
             <!-- SECTION 2: VERBS FOR FAMILY -->
             <section id="verbs">
-                <h2><span class="section-icon">2️⃣</span> Verbs for Family Life</h2>
-                <p>Essential verbs to describe family interactions and history.</p>
+                <h2><span class="section-icon">2️⃣</span> Verbs for Family Life | Verbos para a Vida Familiar</h2>
+                <p>Essential verbs to describe family interactions and history. (Verbos essenciais para descrever interações familiares e história.)</p>
                 <div class="example-box">
-                    • I <strong>love</strong> my family.<br>
-                    • We <strong>live</strong> in a big house.<br>
-                    • I <strong>visit</strong> my grandparents on weekends.<br>
-                    • He <strong>helps</strong> his brother with homework.<br>
-                    • They <strong>married</strong> ten years ago.<br>
-                    • I <strong>grew up</strong> in a small town.
+                    • I <strong>love</strong> my family. <span class="translation">(Eu amo minha família.)</span><br>
+                    • We <strong>live</strong> in a big house. <span class="translation">(Nós moramos em uma casa grande.)</span><br>
+                    • I <strong>visit</strong> my grandparents on weekends. <span class="translation">(Eu visito meus avós nos fins de semana.)</span><br>
+                    • He <strong>helps</strong> his brother with homework. <span class="translation">(Ele ajuda o irmão dele com a lição de casa.)</span><br>
+                    • They <strong>married</strong> ten years ago. <span class="translation">(Eles se casaram há dez anos.)</span><br>
+                    • I <strong>grew up</strong> in a small town. <span class="translation">(Eu cresci em uma cidade pequena.)</span>
                 </div>
             </section>
 
             <!-- SECTION 3: GRAMMAR - POSSESSIVES -->
             <section id="grammar">
-                <h2><span class="section-icon">3️⃣</span> Grammar: Possessives</h2>
+                <h2><span class="section-icon">3️⃣</span> Grammar: Possessives | Gramática: Possessivos</h2>
                 
-                <h3>Possessive Adjectives</h3>
+                <h3>Possessive Adjectives | Adjetivos Possessivos</h3>
                 <div class="grammar-box">
                     <table>
-                        <tr><th>Subject</th><th>Possessive</th><th>Example</th></tr>
-                        <tr><td>I</td><td><strong>My</strong></td><td>My father is a doctor.</td></tr>
-                        <tr><td>You</td><td><strong>Your</strong></td><td>Is that your sister?</td></tr>
-                        <tr><td>He</td><td><strong>His</strong></td><td>His brother is tall.</td></tr>
-                        <tr><td>She</td><td><strong>Her</strong></td><td>Her name is Mary.</td></tr>
-                        <tr><td>It</td><td><strong>Its</strong></td><td>The dog likes its toy.</td></tr>
-                        <tr><td>We</td><td><strong>Our</strong></td><td>Our family is happy.</td></tr>
-                        <tr><td>They</td><td><strong>Their</strong></td><td>Their house is blue.</td></tr>
+                        <tr><th>Subject</th><th>Possessive</th><th>Translation</th><th>Example</th></tr>
+                        <tr><td>I</td><td><strong>My</strong></td><td>Meu/Minha</td><td>My father is a doctor.</td></tr>
+                        <tr><td>You</td><td><strong>Your</strong></td><td>Seu/Sua</td><td>Is that your sister?</td></tr>
+                        <tr><td>He</td><td><strong>His</strong></td><td>Dele</td><td>His brother is tall.</td></tr>
+                        <tr><td>She</td><td><strong>Her</strong></td><td>Dela</td><td>Her name is Mary.</td></tr>
+                        <tr><td>It</td><td><strong>Its</strong></td><td>Dele/Dela (coisa/animal)</td><td>The dog likes its toy.</td></tr>
+                        <tr><td>We</td><td><strong>Our</strong></td><td>Nosso/Nossa</td><td>Our family is happy.</td></tr>
+                        <tr><td>They</td><td><strong>Their</strong></td><td>Deles/Delas</td><td>Their house is blue.</td></tr>
                     </table>
                 </div>
 
-                <h3>Saxon Genitive ('s)</h3>
+                <h3>Saxon Genitive ('s) | Genitivo Saxão</h3>
                 <div class="example-box">
-                    Use <strong>'s</strong> to show possession for people.<br><br>
-                    • John<strong>'s</strong> mother (A mãe de John)<br>
-                    • My sister<strong>'s</strong> car (O carro da minha irmã)<br>
-                    • My parents<strong>'</strong> house (A casa dos meus pais - *Note: only ' for plural ending in s*)
+                    Use <strong>'s</strong> to show possession for people. (Use 's para mostrar posse para pessoas.)<br><br>
+                    • John<strong>'s</strong> mother <span class="translation">(A mãe de John)</span><br>
+                    • My sister<strong>'s</strong> car <span class="translation">(O carro da minha irmã)</span><br>
+                    • My parents<strong>'</strong> house <span class="translation">(A casa dos meus pais - *Nota: apenas ' para plural terminado em s*)</span>
                 </div>
             </section>
 
             <!-- SECTION 4: VERB TABLE (CLASS 01 & 02) -->
             <section id="verb-table">
-                <h2><span class="section-icon">4️⃣</span> Verb List (Class 01 & 02)</h2>
-                <p>Complete list of verbs from both classes. Regular verbs are listed first.</p>
+                <h2><span class="section-icon">4️⃣</span> Verb List (Class 01 & 02) | Lista de Verbos</h2>
+                <p>Complete list of verbs with translations. (Lista completa de verbos com traduções.)</p>
                 
                 <table>
                     <thead>
@@ -386,48 +412,49 @@
                             <th>Infinitive</th>
                             <th>Simple Past</th>
                             <th>Past Participle</th>
+                            <th>Translation (PT-BR)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- Regular Verbs -->
-                        <tr style="background-color: #f0f0f0;"><td colspan="3"><strong>Regular Verbs</strong></td></tr>
-                        <tr><td>Brush</td><td>Brushed</td><td>Brushed</td></tr>
-                        <tr><td>Wash</td><td>Washed</td><td>Washed</td></tr>
-                        <tr><td>Work</td><td>Worked</td><td>Worked</td></tr>
-                        <tr><td>Study</td><td>Studied</td><td>Studied</td></tr>
-                        <tr><td>Watch</td><td>Watched</td><td>Watched</td></tr>
-                        <tr><td>Cook</td><td>Cooked</td><td>Cooked</td></tr>
-                        <tr><td>Clean</td><td>Cleaned</td><td>Cleaned</td></tr>
-                        <tr><td>Love</td><td>Loved</td><td>Loved</td></tr>
-                        <tr><td>Help</td><td>Helped</td><td>Helped</td></tr>
-                        <tr><td>Visit</td><td>Visited</td><td>Visited</td></tr>
-                        <tr><td>Live</td><td>Lived</td><td>Lived</td></tr>
-                        <tr><td>Marry</td><td>Married</td><td>Married</td></tr>
-                        <tr><td>Call</td><td>Called</td><td>Called</td></tr>
+                        <tr style="background-color: #f0f0f0;"><td colspan="4"><strong>Regular Verbs | Verbos Regulares</strong></td></tr>
+                        <tr><td>Brush</td><td>Brushed</td><td>Brushed</td><td>Escovar</td></tr>
+                        <tr><td>Wash</td><td>Washed</td><td>Washed</td><td>Lavar</td></tr>
+                        <tr><td>Work</td><td>Worked</td><td>Worked</td><td>Trabalhar</td></tr>
+                        <tr><td>Study</td><td>Studied</td><td>Studied</td><td>Estudar</td></tr>
+                        <tr><td>Watch</td><td>Watched</td><td>Watched</td><td>Assistir</td></tr>
+                        <tr><td>Cook</td><td>Cooked</td><td>Cooked</td><td>Cozinhar</td></tr>
+                        <tr><td>Clean</td><td>Cleaned</td><td>Cleaned</td><td>Limpar</td></tr>
+                        <tr><td>Love</td><td>Loved</td><td>Loved</td><td>Amar</td></tr>
+                        <tr><td>Help</td><td>Helped</td><td>Helped</td><td>Ajudar</td></tr>
+                        <tr><td>Visit</td><td>Visited</td><td>Visited</td><td>Visitar</td></tr>
+                        <tr><td>Live</td><td>Lived</td><td>Lived</td><td>Morar / Viver</td></tr>
+                        <tr><td>Marry</td><td>Married</td><td>Married</td><td>Casar-se</td></tr>
+                        <tr><td>Call</td><td>Called</td><td>Called</td><td>Chamar / Ligar</td></tr>
                         
                         <!-- Irregular Verbs -->
-                        <tr style="background-color: #f0f0f0;"><td colspan="3"><strong>Irregular Verbs</strong></td></tr>
-                        <tr><td>Wake up</td><td>Woke up</td><td>Woken up</td></tr>
-                        <tr><td>Get up</td><td>Got up</td><td>Got/Gotten</td></tr>
-                        <tr><td>Take</td><td>Took</td><td>Taken</td></tr>
-                        <tr><td>Eat</td><td>Ate</td><td>Eaten</td></tr>
-                        <tr><td>Drink</td><td>Drank</td><td>Drunk</td></tr>
-                        <tr><td>Go</td><td>Went</td><td>Gone</td></tr>
-                        <tr><td>Drive</td><td>Drove</td><td>Driven</td></tr>
-                        <tr><td>Sleep</td><td>Slept</td><td>Slept</td></tr>
-                        <tr><td>Grow up</td><td>Grew up</td><td>Grown up</td></tr>
-                        <tr><td>Give</td><td>Gave</td><td>Given</td></tr>
-                        <tr><td>Have</td><td>Had</td><td>Had</td></tr>
-                        <tr><td>Meet</td><td>Met</td><td>Met</td></tr>
-                        <tr><td>Tell</td><td>Told</td><td>Told</td></tr>
+                        <tr style="background-color: #f0f0f0;"><td colspan="4"><strong>Irregular Verbs | Verbos Irregulares</strong></td></tr>
+                        <tr><td>Wake up</td><td>Woke up</td><td>Woken up</td><td>Acordar</td></tr>
+                        <tr><td>Get up</td><td>Got up</td><td>Got/Gotten</td><td>Levantar-se</td></tr>
+                        <tr><td>Take</td><td>Took</td><td>Taken</td><td>Tomar / Pegar</td></tr>
+                        <tr><td>Eat</td><td>Ate</td><td>Eaten</td><td>Comer</td></tr>
+                        <tr><td>Drink</td><td>Drank</td><td>Drunk</td><td>Beber</td></tr>
+                        <tr><td>Go</td><td>Went</td><td>Gone</td><td>Ir</td></tr>
+                        <tr><td>Drive</td><td>Drove</td><td>Driven</td><td>Dirigir</td></tr>
+                        <tr><td>Sleep</td><td>Slept</td><td>Slept</td><td>Dormir</td></tr>
+                        <tr><td>Grow up</td><td>Grew up</td><td>Grown up</td><td>Crescer</td></tr>
+                        <tr><td>Give</td><td>Gave</td><td>Given</td><td>Dar</td></tr>
+                        <tr><td>Have</td><td>Had</td><td>Had</td><td>Ter</td></tr>
+                        <tr><td>Meet</td><td>Met</td><td>Met</td><td>Encontrar / Conhecer</td></tr>
+                        <tr><td>Tell</td><td>Told</td><td>Told</td><td>Dizer / Contar</td></tr>
                     </tbody>
                 </table>
             </section>
 
             <!-- SECTION 5: INTERACTIVE EXERCISE -->
             <section id="exercise">
-                <h2><span class="section-icon">5️⃣</span> Interactive Quiz</h2>
-                <p>Test your knowledge about family relationships!</p>
+                <h2><span class="section-icon">5️⃣</span> Interactive Quiz | Quiz Interativo</h2>
+                <p>Test your knowledge about family relationships! (Teste seus conhecimentos sobre relações familiares!)</p>
                 
                 <div class="exercise">
                     <div class="quiz-question" data-answer="b">
@@ -436,6 +463,8 @@
                             <div class="quiz-option" data-value="a">a) Cousin</div>
                             <div class="quiz-option" data-value="b">b) Aunt</div>
                             <div class="quiz-option" data-value="c">c) Niece</div>
+                            <div class="quiz-option" data-value="d">d) Daughter</div>
+                            <div class="quiz-option" data-value="e">e) Grandmother</div>
                         </div>
                     </div>
 
@@ -443,8 +472,10 @@
                         <p><strong>2. My father's father is my...</strong></p>
                         <div class="quiz-options">
                             <div class="quiz-option" data-value="a">a) Grandfather</div>
-                            <div class="quiz-option" data-value="b) Uncle</div>
+                            <div class="quiz-option" data-value="b">b) Uncle</div>
                             <div class="quiz-option" data-value="c">c) Brother</div>
+                            <div class="quiz-option" data-value="d">d) Nephew</div>
+                            <div class="quiz-option" data-value="e">e) Son</div>
                         </div>
                     </div>
 
@@ -454,6 +485,8 @@
                             <div class="quiz-option" data-value="a">a) Nephew</div>
                             <div class="quiz-option" data-value="b">b) Brother</div>
                             <div class="quiz-option" data-value="c">c) Cousin</div>
+                            <div class="quiz-option" data-value="d">d) Father</div>
+                            <div class="quiz-option" data-value="e">e) Siblings</div>
                         </div>
                     </div>
 
@@ -463,10 +496,23 @@
                             <div class="quiz-option" data-value="a">a) Parents</div>
                             <div class="quiz-option" data-value="b">b) Siblings</div>
                             <div class="quiz-option" data-value="c">c) Children</div>
+                            <div class="quiz-option" data-value="d">d) Grandparents</div>
+                            <div class="quiz-option" data-value="e">e) Cousins</div>
                         </div>
                     </div>
 
-                    <button class="btn-check" onclick="checkQuiz()">Check Score</button>
+                    <div class="quiz-question" data-answer="d">
+                        <p><strong>5. My brother's daughter is my...</strong></p>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="a">a) Aunt</div>
+                            <div class="quiz-option" data-value="b">b) Cousin</div>
+                            <div class="quiz-option" data-value="c">c) Sister</div>
+                            <div class="quiz-option" data-value="d">d) Niece</div>
+                            <div class="quiz-option" data-value="e">e) Wife</div>
+                        </div>
+                    </div>
+
+                    <button class="btn-check" onclick="checkQuiz()">Check Score | Verificar Pontuação</button>
                     <div id="score-display"></div>
                 </div>
             </section>
@@ -474,8 +520,8 @@
             <!-- SECTION 6: VIDEO RESOURCE -->
             <section id="video">
                 <div class="video-container">
-                    <h3>📺 Recommended Video</h3>
-                    <p>Watch this video to practice your family vocabulary pronunciation.</p><br>
+                    <h3>📺 Recommended Video | Vídeo Recomendado</h3>
+                    <p>Watch this video to practice your family vocabulary pronunciation. (Assista a este vídeo para praticar a pronúncia do vocabulário de família.)</p><br>
                     <a href="https://youtu.be/v9EU41cuhHY" target="_blank" class="video-link">Watch on YouTube</a>
                 </div>
             </section>
@@ -517,23 +563,25 @@
             });
 
             if (!allAnswered) {
-                alert("Please answer all questions first!");
+                alert("Please answer all questions first! / Por favor, responda todas as perguntas primeiro!");
                 return;
             }
 
             const display = document.getElementById('score-display');
             display.style.display = 'block';
-            display.innerHTML = `Your score: ${score} out of ${total} (${(score/total*100)}%)`;
+            display.style.background = '#eef2ff';
+            display.innerHTML = `Your score: ${score} out of ${total} (${(score/total*100)}%)<br>
+                                 Sua pontuação: ${score} de ${total}`;
             
             if (score === total) {
                 display.style.color = '#28a745';
-                display.innerHTML += " - Excellent!";
+                display.innerHTML += "<br>🌟 Excellent! / Excelente!";
             } else if (score >= total/2) {
                 display.style.color = '#ffc107';
-                display.innerHTML += " - Good job!";
+                display.innerHTML += "<br>👍 Good job! / Bom trabalho!";
             } else {
                 display.style.color = '#dc3545';
-                display.innerHTML += " - Keep practicing!";
+                display.innerHTML += "<br>📚 Keep practicing! / Continue praticando!";
             }
         }
     </script>
