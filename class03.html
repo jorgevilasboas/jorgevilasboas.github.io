@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Class 03 - Travel & World Cup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .header-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 50px;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #1e3c72;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1e3c72;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #2a5298;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            text-align: center;
+        }
+
+        .translation {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+            display: block;
+            margin-top: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #1e3c72;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        /* Highlight Classes */
+        .h-pres { color: #ff0000; font-weight: bold; } /* Present highlights (Red) */
+        .h-past { color: #e67e22; font-weight: bold; } /* Past highlights (Orange) */
+        .h-fut  { color: #27ae60; font-weight: bold; } /* Future highlights (Green) */
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .vocab-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 5px solid #1e3c72;
+        }
+
+        .vocab-card h4 {
+            color: #1e3c72;
+            margin-bottom: 12px;
+        }
+
+        .vocab-card ul {
+            list-style: none;
+        }
+
+        .vocab-card li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .exercise {
+            background: #f1f4f9;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .quiz-question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .quiz-option {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .quiz-option:hover {
+            background: #eef2ff;
+        }
+
+        .quiz-option.selected {
+            background: #1e3c72;
+            color: white;
+            border-color: #1e3c72;
+        }
+
+        .btn-check {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        #score-display {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+            font-weight: bold;
+        }
+
+        .video-container {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .video-link {
+            display: inline-block;
+            background: #ff0000;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✈️⚽ English Class 03</h1>
+            <p>Travel & World Cup | Viagens e Copa do Mundo</p>
+            <div class="header-info">
+                <div class="info-badge">⏱️ Duration: 2 Hours</div>
+                <div class="info-badge">📚 Level: Beginner</div>
+                <div class="info-badge">🎯 Focus: Verb Tenses & Themes</div>
+            </div>
+        </header>
+
+        <main>
+            <!-- SECTION 1: VOCABULARY -->
+            <section id="vocabulary">
+                <h2><span class="section-icon">1️⃣</span> Vocabulary | Vocabulário</h2>
+                <div class="vocab-grid">
+                    <div class="vocab-card">
+                        <h4>Travel | Viagem</h4>
+                        <ul>
+                            <li><strong>Passport</strong> <span class="translation">Passaporte</span></li>
+                            <li><strong>Flight</strong> <span class="translation">Voo</span></li>
+                            <li><strong>Suitcase</strong> <span class="translation">Mala</span></li>
+                            <li><strong>Boarding Pass</strong> <span class="translation">Cartão de Embarque</span></li>
+                            <li><strong>Hotel</strong> <span class="translation">Hotel</span></li>
+                            <li><strong>Tourist</strong> <span class="translation">Turista</span></li>
+                        </ul>
+                    </div>
+                    <div class="vocab-card">
+                        <h4>World Cup | Copa do Mundo</h4>
+                        <ul>
+                            <li><strong>Stadium</strong> <span class="translation">Estádio</span></li>
+                            <li><strong>Match</strong> <span class="translation">Partida / Jogo</span></li>
+                            <li><strong>National Team</strong> <span class="translation">Seleção Nacional</span></li>
+                            <li><strong>Trophy</strong> <span class="translation">Troféu</span></li>
+                            <li><strong>Referee</strong> <span class="translation">Árbitro</span></li>
+                            <li><strong>Goal</strong> <span class="translation">Gol</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="exercise">
+    <h3>✈️⚽ Aloisio & Teresa: Travel and the World Cup</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>English</th>
+                <th>Português</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Aloisio:</strong> Hello, Teresa! Are you excited about the World Cup?</td>
+                <td><strong>Aloisio:</strong> Olá, Teresa! Você está animada para a Copa do Mundo?</td>
+            </tr>
+
+            <tr>
+                <td><strong>Teresa:</strong> Yes, I am! I love football and I love travelling.</td>
+                <td><strong>Teresa:</strong> Sim! Eu amo futebol e adoro viajar.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Aloisio:</strong> Which country are you going to visit?</td>
+                <td><strong>Aloisio:</strong> Qual país você vai visitar?</td>
+            </tr>
+
+            <tr>
+                <td><strong>Teresa:</strong> I am going to visit the United States. I already have my passport and boarding pass.</td>
+                <td><strong>Teresa:</strong> Vou visitar os Estados Unidos. Já tenho meu passaporte e cartão de embarque.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Aloisio:</strong> Great! Will you stay in a hotel near the stadium?</td>
+                <td><strong>Aloisio:</strong> Ótimo! Você ficará em um hotel perto do estádio?</td>
+            </tr>
+
+            <tr>
+                <td><strong>Teresa:</strong> Yes, I will. The hotel is only ten minutes from the stadium.</td>
+                <td><strong>Teresa:</strong> Sim. O hotel fica a apenas dez minutos do estádio.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Aloisio:</strong> Which match are you going to watch?</td>
+                <td><strong>Aloisio:</strong> Qual partida você vai assistir?</td>
+            </tr>
+
+            <tr>
+                <td><strong>Teresa:</strong> I am going to watch Brazil versus Argentina.</td>
+                <td><strong>Teresa:</strong> Vou assistir Brasil contra Argentina.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Aloisio:</strong> That will be an amazing match!</td>
+                <td><strong>Aloisio:</strong> Esse será um jogo incrível!</td>
+            </tr>
+
+            <tr>
+                <td><strong>Teresa:</strong> I think Brazil will win the trophy.</td>
+                <td><strong>Teresa:</strong> Acho que o Brasil vai ganhar o troféu.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Aloisio:</strong> Who will score the first goal?</td>
+                <td><strong>Aloisio:</strong> Quem marcará o primeiro gol?</td>
+            </tr>
+
+            <tr>
+                <td><strong>Teresa:</strong> I think the captain will score.</td>
+                <td><strong>Teresa:</strong> Acho que o capitão vai marcar.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Aloisio:</strong> Did you travel to a World Cup before?</td>
+                <td><strong>Aloisio:</strong> Você já viajou para uma Copa do Mundo antes?</td>
+            </tr>
+
+            <tr>
+                <td><strong>Teresa:</strong> Yes, I travelled to Qatar in 2022.</td>
+                <td><strong>Teresa:</strong> Sim, viajei para o Catar em 2022.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Aloisio:</strong> Did you watch many matches there?</td>
+                <td><strong>Aloisio:</strong> Você assistiu muitos jogos lá?</td>
+            </tr>
+
+            <tr>
+                <td><strong>Teresa:</strong> Yes, I watched five matches and met tourists from many countries.</td>
+                <td><strong>Teresa:</strong> Sim, assisti cinco jogos e conheci turistas de muitos países.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Aloisio:</strong> That's fantastic! How many suitcases will you take this time?</td>
+                <td><strong>Aloisio:</strong> Fantástico! Quantas malas você levará desta vez?</td>
+            </tr>
+
+            <tr>
+                <td><strong>Teresa:</strong> Only one suitcase. I want to travel light.</td>
+                <td><strong>Teresa:</strong> Apenas uma mala. Quero viajar leve.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Aloisio:</strong> Have a great trip and enjoy the World Cup!</td>
+                <td><strong>Aloisio:</strong> Tenha uma ótima viagem e aproveite a Copa do Mundo!</td>
+            </tr>
+
+            <tr>
+                <td><strong>Teresa:</strong> Thank you! I will send you photos from the stadium.</td>
+                <td><strong>Teresa:</strong> Obrigada! Vou lhe enviar fotos do estádio.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+            <!-- SECTION 2: CONJUGATION TABLES -->
+            <section id="conjugation">
+                <h2><span class="section-icon">2️⃣</span> Verb Conjugation | Conjugação de Verbos</h2>
+                
+                <!-- PRESENT SIMPLE -->
+                <h3>PRESENT SIMPLE - Verb to Play (Jogar)</h3>
+                <table>
+                    <thead>
+                        <tr><th>Affirmative</th><th>Negative</th><th>Interrogative</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>I play</td><td>I don't play</td><td>Do I play?</td></tr>
+                        <tr><td>You play</td><td>You don't play</td><td>Do you play?</td></tr>
+                        <tr><td>He play<span class="h-pres">s</span></td><td>He <span class="h-pres">doesn't</span> play</td><td><span class="h-pres">Does</span> he play?</td></tr>
+                        <tr><td>She play<span class="h-pres">s</span></td><td>She <span class="h-pres">doesn't</span> play</td><td><span class="h-pres">Does</span> she play?</td></tr>
+                        <tr><td>It play<span class="h-pres">s</span></td><td>It <span class="h-pres">doesn't</span> play</td><td><span class="h-pres">Does</span> it play?</td></tr>
+                        <tr><td>We play</td><td>We don't play</td><td>Do we play?</td></tr>
+                        <tr><td>You play</td><td>You don't play</td><td>Do you play?</td></tr>
+                        <tr><td>They play</td><td>They don't play</td><td>Do they play?</td></tr>
+                    </tbody>
+                </table>
+
+                <!-- SIMPLE PAST -->
+                <h3>SIMPLE PAST - Verb to Travel (Viajar)</h3>
+                <table>
+                    <thead>
+                        <tr><th>Affirmative</th><th>Negative</th><th>Interrogative</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>I travel<span class="h-past">led</span></td><td>I <span class="h-past">didn't</span> travel</td><td><span class="h-past">Did</span> I travel?</td></tr>
+                        <tr><td>You travel<span class="h-past">led</span></td><td>You <span class="h-past">didn't</span> travel</td><td><span class="h-past">Did</span> you travel?</td></tr>
+                        <tr><td>He travel<span class="h-past">led</span></td><td>He <span class="h-past">didn't</span> travel</td><td><span class="h-past">Did</span> he travel?</td></tr>
+                        <tr><td>She travel<span class="h-past">led</span></td><td>She <span class="h-past">didn't</span> travel</td><td><span class="h-past">Did</span> she travel?</td></tr>
+                        <tr><td>It travel<span class="h-past">led</span></td><td>It <span class="h-past">didn't</span> travel</td><td><span class="h-past">Did</span> it travel?</td></tr>
+                        <tr><td>We travel<span class="h-past">led</span></td><td>We <span class="h-past">didn't</span> travel</td><td><span class="h-past">Did</span> we travel?</td></tr>
+                        <tr><td>You travel<span class="h-past">led</span></td><td>You <span class="h-past">didn't</span> travel</td><td><span class="h-past">Did</span> you travel?</td></tr>
+                        <tr><td>They travel<span class="h-past">led</span></td><td>They <span class="h-past">didn't</span> travel</td><td><span class="h-past">Did</span> they travel?</td></tr>
+                    </tbody>
+                </table>
+
+                <!-- SIMPLE FUTURE (WILL) -->
+                <h3>SIMPLE FUTURE (WILL) - Verb to Watch (Assistir)</h3>
+                <table>
+                    <thead>
+                        <tr><th>Affirmative</th><th>Negative</th><th>Interrogative</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>I <span class="h-fut">will</span> watch</td><td>I <span class="h-fut">won't</span> watch</td><td><span class="h-fut">Will</span> I watch?</td></tr>
+                        <tr><td>You <span class="h-fut">will</span> watch</td><td>You <span class="h-fut">won't</span> watch</td><td><span class="h-fut">Will</span> you watch?</td></tr>
+                        <tr><td>He <span class="h-fut">will</span> watch</td><td>He <span class="h-fut">won't</span> watch</td><td><span class="h-fut">Will</span> he watch?</td></tr>
+                        <tr><td>She <span class="h-fut">will</span> watch</td><td>She <span class="h-fut">won't</span> watch</td><td><span class="h-fut">Will</span> she watch?</td></tr>
+                        <tr><td>It <span class="h-fut">will</span> watch</td><td>It <span class="h-fut">won't</span> watch</td><td><span class="h-fut">Will</span> it watch?</td></tr>
+                        <tr><td>We <span class="h-fut">will</span> watch</td><td>We <span class="h-fut">won't</span> watch</td><td><span class="h-fut">Will</span> we watch?</td></tr>
+                        <tr><td>You <span class="h-fut">will</span> watch</td><td>You <span class="h-fut">won't</span> watch</td><td><span class="h-fut">Will</span> you watch?</td></tr>
+                        <tr><td>They <span class="h-fut">will</span> watch</td><td>They <span class="h-fut">won't</span> watch</td><td><span class="h-fut">Will</span> they watch?</td></tr>
+                    </tbody>
+                </table>
+
+                <!-- FUTURE (GOING TO) -->
+                <h3>FUTURE (GOING TO) - Verb to Watch (Assistir)</h3>
+                <p style="text-align:center; margin-bottom:10px;"><em>Used for plans and intentions. (Usado para planos e intenções.)</em></p>
+                <table>
+                    <thead>
+                        <tr><th>Affirmative</th><th>Negative</th><th>Interrogative</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>I am <span class="h-fut">going to</span> watch</td><td>I'm <span class="h-fut">not going to</span> watch</td><td><span class="h-fut">Am</span> I <span class="h-fut">going to</span> watch?</td></tr>
+                        <tr><td>You are <span class="h-fut">going to</span> watch</td><td>You <span class="h-fut">aren't going to</span> watch</td><td><span class="h-fut">Are</span> you <span class="h-fut">going to</span> watch?</td></tr>
+                        <tr><td>He is <span class="h-fut">going to</span> watch</td><td>He <span class="h-fut">isn't going to</span> watch</td><td><span class="h-fut">Is</span> he <span class="h-fut">going to</span> watch?</td></tr>
+                        <tr><td>She is <span class="h-fut">going to</span> watch</td><td>She <span class="h-fut">isn't going to</span> watch</td><td><span class="h-fut">Is</span> she <span class="h-fut">going to</span> watch?</td></tr>
+                        <tr><td>It is <span class="h-fut">going to</span> watch</td><td>It <span class="h-fut">isn't going to</span> watch</td><td><span class="h-fut">Is</span> it <span class="h-fut">going to</span> watch?</td></tr>
+                        <tr><td>We are <span class="h-fut">going to</span> watch</td><td>We <span class="h-fut">aren't going to</span> watch</td><td><span class="h-fut">Are</span> we <span class="h-fut">going to</span> watch?</td></tr>
+                        <tr><td>You are <span class="h-fut">going to</span> watch</td><td>You <span class="h-fut">aren't going to</span> watch</td><td><span class="h-fut">Are</span> you <span class="h-fut">going to</span> watch?</td></tr>
+                        <tr><td>They are <span class="h-fut">going to</span> watch</td><td>They <span class="h-fut">aren't going to</span> watch</td><td><span class="h-fut">Are</span> they <span class="h-fut">going to</span> watch?</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SECTION 3: VERB LIST -->
+            <section id="verb-list">
+                <h2><span class="section-icon">3️⃣</span> Cumulative Verb List | Lista Acumulada de Verbos</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Infinitive</th>
+                            <th>Simple Past</th>
+                            <th>Past Participle</th>
+                            <th>Translation (PT-BR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background-color: #f0f0f0;"><td colspan="4"><strong>Regular Verbs | Verbos Regulares</strong></td></tr>
+                        <tr><td>Play</td><td>Played</td><td>Played</td><td>Jogar / Brincar</td></tr>
+                        <tr><td>Travel</td><td>Travelled</td><td>Travelled</td><td>Viajar</td></tr>
+                        <tr><td>Watch</td><td>Watched</td><td>Watched</td><td>Assistir</td></tr>
+                        <tr><td>Score</td><td>Scored</td><td>Scored</td><td>Marcar (gol)</td></tr>
+                        <tr><td>Visit</td><td>Visited</td><td>Visited</td><td>Visitar</td></tr>
+                        <tr><td>Work</td><td>Worked</td><td>Worked</td><td>Trabalhar</td></tr>
+                        <tr><td>Study</td><td>Studied</td><td>Studied</td><td>Estudar</td></tr>
+                        <tr><td>Brush</td><td>Brushed</td><td>Brushed</td><td>Escovar</td></tr>
+                        <tr><td>Wash</td><td>Washed</td><td>Washed</td><td>Lavar</td></tr>
+                        <tr><td>Cook</td><td>Cooked</td><td>Cooked</td><td>Cozinhar</td></tr>
+                        <tr><td>Clean</td><td>Cleaned</td><td>Cleaned</td><td>Limpar</td></tr>
+                        <tr><td>Love</td><td>Loved</td><td>Loved</td><td>Amar</td></tr>
+                        <tr><td>Help</td><td>Helped</td><td>Helped</td><td>Ajudar</td></tr>
+                        <tr><td>Live</td><td>Lived</td><td>Lived</td><td>Morar / Viver</td></tr>
+                        <tr><td>Marry</td><td>Married</td><td>Married</td><td>Casar-se</td></tr>
+                        <tr><td>Call</td><td>Called</td><td>Called</td><td>Chamar / Ligar</td></tr>
+                        
+                        <tr style="background-color: #f0f0f0;"><td colspan="4"><strong>Irregular Verbs | Verbos Irregulares</strong></td></tr>
+                        <tr><td>Fly</td><td>Flew</td><td>Flown</td><td>Voar</td></tr>
+                        <tr><td>Win</td><td>Won</td><td>Won</td><td>Vencer / Ganhar</td></tr>
+                        <tr><td>Go</td><td>Went</td><td>Gone</td><td>Ir</td></tr>
+                        <tr><td>Eat</td><td>Ate</td><td>Eaten</td><td>Comer</td></tr>
+                        <tr><td>Drink</td><td>Drank</td><td>Drunk</td><td>Beber</td></tr>
+                        <tr><td>Sleep</td><td>Slept</td><td>Slept</td><td>Dormir</td></tr>
+                        <tr><td>Wake up</td><td>Woke up</td><td>Woken up</td><td>Acordar</td></tr>
+                        <tr><td>Get up</td><td>Got up</td><td>Got/Gotten</td><td>Levantar-se</td></tr>
+                        <tr><td>Take</td><td>Took</td><td>Taken</td><td>Tomar / Pegar</td></tr>
+                        <tr><td>Drive</td><td>Drove</td><td>Driven</td><td>Dirigir</td></tr>
+                        <tr><td>Grow up</td><td>Grew up</td><td>Grown up</td><td>Crescer</td></tr>
+                        <tr><td>Give</td><td>Gave</td><td>Given</td><td>Dar</td></tr>
+                        <tr><td>Have</td><td>Had</td><td>Had</td><td>Ter</td></tr>
+                        <tr><td>Meet</td><td>Met</td><td>Met</td><td>Encontrar / Conhecer</td></tr>
+                        <tr><td>Tell</td><td>Told</td><td>Told</td><td>Dizer / Contar</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SECTION 4: QUIZ -->
+            <section id="quiz">
+                <h2><span class="section-icon">4️⃣</span> Interactive Quiz | Quiz Interativo</h2>
+                <div class="exercise">
+                    <div class="quiz-question" data-answer="c">
+                        <p><strong>1. Brazil _____ the match yesterday. (Past)</strong></p>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="a">a) win</div>
+                            <div class="quiz-option" data-value="b">b) wins</div>
+                            <div class="quiz-option" data-value="c">c) won</div>
+                            <div class="quiz-option" data-value="d">d) winning</div>
+                            <div class="quiz-option" data-value="e">e) will win</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question" data-answer="b">
+                        <p><strong>2. He _____ to Japan every year. (Present)</strong></p>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="a">a) travel</div>
+                            <div class="quiz-option" data-value="b">b) travels</div>
+                            <div class="quiz-option" data-value="c">c) travelled</div>
+                            <div class="quiz-option" data-value="d">d) travelling</div>
+                            <div class="quiz-option" data-value="e">e) will travel</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question" data-answer="e">
+                        <p><strong>3. I _____ the World Cup final next Sunday. (Future)</strong></p>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="a">a) watch</div>
+                            <div class="quiz-option" data-value="b">b) watches</div>
+                            <div class="quiz-option" data-value="c">c) watched</div>
+                            <div class="quiz-option" data-value="d">d) watching</div>
+                            <div class="quiz-option" data-value="e">e) will watch</div>
+                        </div>
+                    </div>
+
+                    <button class="btn-check" onclick="checkQuiz()">Check Score | Verificar Pontuação</button>
+                    <div id="score-display"></div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: VIDEO -->
+            <section id="video">
+                <div class="video-container">
+                    <h3>📺 Recommended Video | Vídeo Recomendado</h3>
+                    <p>Practice your listening!</p><br>
+                    <a href="https://youtu.be/kTf0V4HyFtM" target="_blank" class="video-link">Watch on YouTube</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 English Class Series | Lesson 03: Travel & World Cup</p>
+        </footer>
+    </div>
+
+    <script>
+        const questions = document.querySelectorAll('.quiz-question');
+        questions.forEach(q => {
+            const options = q.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.addEventListener('click', () => {
+                    options.forEach(o => o.classList.remove('selected'));
+                    opt.classList.add('selected');
+                });
+            });
+        });
+
+        function checkQuiz() {
+            let score = 0;
+            let total = questions.length;
+            let allAnswered = true;
+
+            questions.forEach(q => {
+                const selected = q.querySelector('.quiz-option.selected');
+                if (!selected) { allAnswered = false; return; }
+                if (selected.getAttribute('data-value') === q.getAttribute('data-answer')) {
+                    score++;
+                }
+            });
+
+            if (!allAnswered) {
+                alert("Please answer all questions! / Por favor, responda todas!");
+                return;
+            }
+
+            const display = document.getElementById('score-display');
+            display.style.display = 'block';
+            display.style.background = '#eef2ff';
+            display.innerHTML = `Score: ${score}/${total} (${(score/total*100)}%)<br>
+                                 Pontuação: ${score} de ${total}`;
+            
+            if (score === total) {
+                display.style.color = '#28a745';
+                display.innerHTML += "<br>🌟 Amazing! / Incrível!";
+            } else if (score >= total/2) {
+                display.style.color = '#ffc107';
+                display.innerHTML += "<br>👍 Well done! / Bem feito!";
+            } else {
+                display.style.color = '#dc3545';
+                display.innerHTML += "<br>📚 Keep studying! / Continue estudando!";
+            }
+        }
+    </script>
+</body>
+</html>
