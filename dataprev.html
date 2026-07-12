@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DATAPREV 2026 · Cronograma Antonio</title>
+<style>
+:root{--bg:#0b1020;--card:#121a2e;--card2:#17213a;--txt:#eef3ff;--muted:#9eabc8;--accent:#72e6b1;--accent2:#8ca8ff;--danger:#ff8f8f;--line:#263454}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:linear-gradient(135deg,#090d18,#111936);color:var(--txt)}
+.wrap{max-width:1180px;margin:auto;padding:28px 18px 80px} h1{font-size:clamp(28px,5vw,54px);margin:0 0 8px} .sub{color:var(--muted);font-size:18px}
+.hero{padding:28px;border:1px solid var(--line);border-radius:24px;background:rgba(18,26,46,.88);box-shadow:0 18px 60px #0005}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--card2);padding:16px;border-radius:16px} .stat b{display:block;font-size:28px;color:var(--accent)} .stat span{color:var(--muted)}
+.progress{height:14px;background:#080c17;border-radius:99px;overflow:hidden} #bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.3s}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0} button{border:0;border-radius:12px;padding:11px 15px;background:var(--accent2);color:#081022;font-weight:800;cursor:pointer}
+button.secondary{background:var(--card2);color:var(--txt);border:1px solid var(--line)} button.danger{background:var(--danger);color:#281010}
+.week{margin:18px 0;border:1px solid var(--line);border-radius:20px;background:var(--card);overflow:hidden}
+.week summary{list-style:none;cursor:pointer;padding:20px;display:flex;align-items:center;gap:12px} summary::-webkit-details-marker{display:none}
+.badge{padding:6px 10px;border-radius:99px;background:#20365b;color:#cfe0ff;font-size:12px;font-weight:800} .grow{flex:1} .weekpct{color:var(--accent);font-weight:800}
+.content{padding:0 20px 22px} .focus{color:var(--muted);margin-bottom:14px}
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.day{background:var(--card2);border-radius:16px;padding:15px} .day h3{margin:0 0 10px;font-size:16px}
+.task{display:flex;gap:10px;align-items:flex-start;padding:7px 0;color:#dfe7fb} input[type=checkbox]{width:19px;height:19px;accent-color:var(--accent);flex:0 0 auto}
+.task.done span{text-decoration:line-through;color:#6f7b98} .uber{color:#ffd28b} .train{color:#9fe6ca} .exam{color:#ffaaaa;font-weight:800}
+.note{margin-top:10px;width:100%;min-height:55px;background:#0c1325;border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:10px;resize:vertical}
+footer{color:var(--muted);margin-top:30px;text-align:center} @media print{body{background:white;color:black} .toolbar{display:none} .hero,.week,.day{background:white;box-shadow:none} .sub,.focus,footer{color:#444}}
+</style>
+</head>
+<body><div class="wrap">
+<section class="hero">
+<h1>DATAPREV 2026 🎯</h1>
+<div class="sub">Perfil 3 · Desenvolvimento de Software · João Pessoa · Prova 11/10/2026</div>
+<div class="stats">
+<div class="stat"><b id="daysLeft">0</b><span>dias até a prova</span></div>
+<div class="stat"><b id="doneCount">0</b><span>tarefas concluídas</span></div>
+<div class="stat"><b id="questionTotal">0</b><span>questões registradas</span></div>
+<div class="stat"><b id="overallPct">0%</b><span>execução do plano</span></div>
+</div>
+<div class="progress"><div id="bar"></div></div>
+<div class="toolbar">
+<button onclick="openCurrent()">Abrir semana atual</button>
+<button class="secondary" onclick="window.print()">Imprimir / Salvar PDF</button>
+<button class="secondary" onclick="exportData()">Exportar progresso</button>
+<button class="secondary" onclick="document.getElementById('importFile').click()">Importar progresso</button>
+<input id="importFile" type="file" accept=".json" hidden onchange="importData(event)">
+<button class="danger" onclick="resetAll()">Zerar progresso</button>
+</div>
+<div style="color:var(--muted)">Marque tarefas, registre questões e escreva observações. O navegador salva tudo automaticamente neste dispositivo.</div>
+</section>
+<div id="weeks"></div>
+<footer>Plano construído para conteúdo pela manhã, questões à tarde, esteira 5×/semana, musculação 3×/semana e Uber em noites selecionadas + fins de semana.</footer>
+</div>
+<script>
+const weeks=[{"n": 1, "start": "2026-07-13", "end": "2026-07-19", "phase": "FASE 1 · Varredura do edital", "topics": ["Java / JVM / OO / Collections", "Java EE, Jakarta EE, JPA e Hibernate", "Spring, Spring Boot e Spring Cloud", "Arquitetura de software, SOA, APIs e mensageria", "Engenharia de Software e Requisitos", "Testes, JUnit e TDD", "Banco de Dados e SQL"]}, {"n": 2, "start": "2026-07-20", "end": "2026-07-26", "phase": "FASE 1 · Varredura do edital", "topics": ["Java / JVM / OO / Collections", "Java EE, Jakarta EE, JPA e Hibernate", "Spring, Spring Boot e Spring Cloud", "Arquitetura de software, SOA, APIs e mensageria", "Engenharia de Software e Requisitos", "Testes, JUnit e TDD", "Banco de Dados e SQL"]}, {"n": 3, "start": "2026-07-27", "end": "2026-08-02", "phase": "FASE 1 · Varredura do edital", "topics": ["Java / JVM / OO / Collections", "Java EE, Jakarta EE, JPA e Hibernate", "Spring, Spring Boot e Spring Cloud", "Arquitetura de software, SOA, APIs e mensageria", "Engenharia de Software e Requisitos", "Testes, JUnit e TDD", "Banco de Dados e SQL"]}, {"n": 4, "start": "2026-08-03", "end": "2026-08-09", "phase": "FASE 1 · Varredura do edital", "topics": ["Java / JVM / OO / Collections", "Java EE, Jakarta EE, JPA e Hibernate", "Spring, Spring Boot e Spring Cloud", "Arquitetura de software, SOA, APIs e mensageria", "Engenharia de Software e Requisitos", "Testes, JUnit e TDD", "Banco de Dados e SQL"]}, {"n": 5, "start": "2026-08-10", "end": "2026-08-16", "phase": "FASE 2 · Aprofundamento", "topics": ["OWASP Top 10, HTTPS e TLS", "OAuth2, SSO, SAST e DAST", "ISO 27001/27002 e LGPD", "Microsserviços, Hexagonal e API Gateway", "DevOps, Git e Containers", "BI, DW, ETL, OLAP e Data Mining", "Front-end, UX, SPA e PWA"]}, {"n": 6, "start": "2026-08-17", "end": "2026-08-23", "phase": "FASE 2 · Aprofundamento", "topics": ["OWASP Top 10, HTTPS e TLS", "OAuth2, SSO, SAST e DAST", "ISO 27001/27002 e LGPD", "Microsserviços, Hexagonal e API Gateway", "DevOps, Git e Containers", "BI, DW, ETL, OLAP e Data Mining", "Front-end, UX, SPA e PWA"]}, {"n": 7, "start": "2026-08-24", "end": "2026-08-30", "phase": "FASE 2 · Aprofundamento", "topics": ["OWASP Top 10, HTTPS e TLS", "OAuth2, SSO, SAST e DAST", "ISO 27001/27002 e LGPD", "Microsserviços, Hexagonal e API Gateway", "DevOps, Git e Containers", "BI, DW, ETL, OLAP e Data Mining", "Front-end, UX, SPA e PWA"]}, {"n": 8, "start": "2026-08-31", "end": "2026-09-06", "phase": "FASE 2 · Aprofundamento", "topics": ["OWASP Top 10, HTTPS e TLS", "OAuth2, SSO, SAST e DAST", "ISO 27001/27002 e LGPD", "Microsserviços, Hexagonal e API Gateway", "DevOps, Git e Containers", "BI, DW, ETL, OLAP e Data Mining", "Front-end, UX, SPA e PWA"]}, {"n": 9, "start": "2026-09-07", "end": "2026-09-13", "phase": "FASE 3 · Modo FGV", "topics": ["Revisão por erros", "Questões FGV de específicos", "Português e Inglês FGV", "LGPD / Segurança", "Raciocínio Lógico", "Simulado completo de 70 questões"]}, {"n": 10, "start": "2026-09-14", "end": "2026-09-20", "phase": "FASE 3 · Modo FGV", "topics": ["Revisão por erros", "Questões FGV de específicos", "Português e Inglês FGV", "LGPD / Segurança", "Raciocínio Lógico", "Simulado completo de 70 questões"]}, {"n": 11, "start": "2026-09-21", "end": "2026-09-27", "phase": "FASE 3 · Modo FGV", "topics": ["Revisão por erros", "Questões FGV de específicos", "Português e Inglês FGV", "LGPD / Segurança", "Raciocínio Lógico", "Simulado completo de 70 questões"]}, {"n": 12, "start": "2026-09-28", "end": "2026-10-04", "phase": "FASE 4 · Cirurgia dos erros", "topics": ["Top 10 assuntos com mais erros", "Revisão dirigida", "Questões dos pontos fracos", "Simulado completo"]}, {"n": 13, "start": "2026-10-05", "end": "2026-10-11", "phase": "FASE 5 · Reta final", "topics": ["Caderno de erros", "Revisão leve", "Simulado final", "Logística da prova", "Descanso e prova"]}];
+const ptDays=["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+const storageKey="dataprev2026Antonio";
+let state=JSON.parse(localStorage.getItem(storageKey)||'{"checks":{},"notes":{},"questions":{}}');
+const fmt=s=>new Date(s+"T12:00:00").toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit"});
+function task(id,text,cls=""){let checked=!!state.checks[id];return `<label class="task ${checked?"done":""} ${cls}"><input type="checkbox" data-id="${id}" ${checked?"checked":""}><span>${text}</span></label>`}
+function dailyTasks(dt, w){
+ const dow=dt.getDay(), iso=dt.toISOString().slice(0,10), phase=w.phase;
+ if(iso==="2026-10-11") return [task(iso+"-exam","PROVA DATAPREV · 13h às 17h · chegar 11h30","exam")];
+ let heavy=w.topics[(dow+1)%w.topics.length], light=["Português FGV","Inglês FGV","LGPD / Segurança","Atualidades e IA","Raciocínio Lógico"][dow%5];
+ let q=phase.includes("FASE 1")?30:phase.includes("FASE 2")?40:50;
+ let arr=[task(iso+"-content",`08:10–10:10 · Conteúdo: ${heavy}`),task(iso+"-light",`10:25–11:25 · ${light}`),task(iso+"-review","11:25–11:45 · Revisão ativa")];
+ if(dow===6 && phase.includes("FASE 3")||dow===6 && phase.includes("FASE 4")) arr.push(task(iso+"-sim","08:00–12:00 · Simulado 70 questões","exam"));
+ else arr.push(task(iso+"-q",`14:00–16:00 · Meta: ${q} questões`),task(iso+"-errors","16:00–16:30 · Caderno de erros"));
+ if([1,2,3,4,5].includes(dow)) arr.push(task(iso+"-tread","Esteira","train"));
+ if([1,3,5].includes(dow)) arr.push(task(iso+"-gym","Musculação","train"));
+ if([2,4,5].includes(dow)) arr.push(task(iso+"-uber","20:00–23:00 · Uber","uber"));
+ if([0,6].includes(dow)) arr.push(task(iso+"-uber","Tarde e noite · Uber","uber"));
+ return arr;
+}
+function render(){
+ const root=document.getElementById("weeks"); root.innerHTML="";
+ weeks.forEach(w=>{
+  let a=new Date(w.start+"T12:00:00"), b=new Date(w.end+"T12:00:00"), dayHtml="", ids=[];
+  for(let dt=new Date(a);dt<=b;dt.setDate(dt.getDate()+1)){
+   let iso=dt.toISOString().slice(0,10); let ts=dailyTasks(new Date(dt),w); let str=ts.join(""); 
+   let matches=[...str.matchAll(/data-id="([^"]+)"/g)].map(x=>x[1]); ids.push(...matches);
+   let qv=state.questions[iso]||"";
+   dayHtml+=`<div class="day"><h3>${ptDays[dt.getDay()]} · ${fmt(iso)}</h3>${str}<label class="task">🧮 <span>Questões feitas:</span><input style="width:75px;background:#0c1325;color:white;border:1px solid #263454;border-radius:7px;padding:6px" type="number" min="0" data-q="${iso}" value="${qv}"></label><textarea class="note" data-note="${iso}" placeholder="Erros, dúvidas, observações...">${state.notes[iso]||""}</textarea></div>`;
+  }
+  let done=ids.filter(id=>state.checks[id]).length,pct=ids.length?Math.round(done/ids.length*100):0;
+  let el=document.createElement("details"); el.className="week"; el.dataset.start=w.start; el.dataset.end=w.end;
+  el.innerHTML=`<summary><span class="badge">SEMANA ${w.n}</span><strong>${fmt(w.start)} → ${fmt(w.end)}</strong><span class="grow">${w.phase}</span><span class="weekpct">${pct}%</span></summary><div class="content"><div class="focus">Foco: ${w.topics.join(" · ")}</div><div class="days">${dayHtml}</div></div>`;
+  root.appendChild(el);
+ });
+ bind(); updateStats();
+}
+function bind(){
+ document.querySelectorAll('input[type=checkbox]').forEach(x=>x.onchange=e=>{state.checks[e.target.dataset.id]=e.target.checked;save();render()});
+ document.querySelectorAll('[data-note]').forEach(x=>x.oninput=e=>{state.notes[e.target.dataset.note]=e.target.value;save()});
+ document.querySelectorAll('[data-q]').forEach(x=>x.oninput=e=>{state.questions[e.target.dataset.q]=e.target.value;save();updateStats()});
+}
+function save(){localStorage.setItem(storageKey,JSON.stringify(state))}
+function updateStats(){
+ let checks=document.querySelectorAll('input[type=checkbox]'),done=[...checks].filter(x=>x.checked).length,pct=checks.length?Math.round(done/checks.length*100):0;
+ document.getElementById("doneCount").textContent=done; document.getElementById("overallPct").textContent=pct+"%"; document.getElementById("bar").style.width=pct+"%";
+ document.getElementById("questionTotal").textContent=Object.values(state.questions).reduce((a,v)=>a+(Number(v)||0),0);
+ let now=new Date(); let ex=new Date("2026-10-11T13:00:00"); document.getElementById("daysLeft").textContent=Math.max(0,Math.ceil((ex-now)/86400000));
+}
+function openCurrent(){let today=new Date().toISOString().slice(0,10), found=false;document.querySelectorAll(".week").forEach(x=>{x.open=!found&&today>=x.dataset.start&&today<=x.dataset.end;if(x.open){found=true;x.scrollIntoView({behavior:"smooth"})}});if(!found)document.querySelector(".week").open=true}
+function exportData(){let blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="progresso-dataprev-2026.json";a.click()}
+function importData(e){let r=new FileReader();r.onload=()=>{state=JSON.parse(r.result);save();render()};r.readAsText(e.target.files[0])}
+function resetAll(){if(confirm("Apagar todo o progresso salvo?")){state={checks:{},notes:{},questions:{}};save();render()}}
+render(); openCurrent();
+</script></body></html>
