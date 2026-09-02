@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano Semanal • Projeto Diamante Uber</title>
+<style>
+:root{
+  --bg:#f5f7fa; --card:#fff; --text:#111827; --muted:#667085;
+  --line:#e4e7ec; --uber:#111; --green:#16a34a; --blue:#2563eb;
+  --yellow:#f59e0b; --purple:#7c3aed;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+header{background:#111;color:white;padding:28px 22px 24px;position:sticky;top:0;z-index:5;box-shadow:0 3px 14px #0002}
+header h1{margin:0 0 6px;font-size:clamp(24px,4vw,36px)}
+header p{margin:0;color:#d0d5dd}
+.container{max-width:1500px;margin:22px auto;padding:0 16px}
+.now-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 5px 20px #0000000b;margin-bottom:22px}
+.now-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.now-label{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+#clock{font-size:34px;font-weight:800;margin-top:4px}
+#date{color:var(--muted);margin-top:2px}
+.action{margin-top:18px;border-radius:14px;padding:18px 20px;background:#eef2ff;border-left:6px solid var(--blue)}
+.action strong{font-size:23px;display:block;margin-bottom:5px}
+.action small{color:#475467;font-size:15px}
+.next{margin-top:14px;color:#475467}
+.grid-wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 5px 20px #0000000b}
+table{border-collapse:separate;border-spacing:0;min-width:1180px;width:100%}
+th,td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 10px;vertical-align:top}
+th{background:#f9fafb;font-size:14px}
+th:first-child{z-index:2}
+.time{font-weight:800;white-space:nowrap;background:#f9fafb;width:95px}
+.slot{min-height:66px;border-radius:10px;padding:9px;font-size:13px;font-weight:700}
+.slot span{display:block;font-weight:500;margin-top:4px;color:#475467}
+.uber{background:#e9e9e9;color:#111}
+.extra{background:#fff1bf}
+.study{background:#e8ddff}
+.prospect{background:#dbeafe}
+.exercise{background:#dcfce7}
+.rest{background:#f2f4f7;color:#667085}
+.meal{background:#fef3c7}
+.sleep{background:#e5e7eb;color:#667085}
+.priority{outline:2px solid #f59e0b;outline-offset:-2px}
+.legend{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}
+.legend span{padding:7px 10px;border-radius:9px;font-size:13px;font-weight:700}
+.info{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.info h2{margin:0 0 10px}
+.info ul{margin:8px 0 0;padding-left:20px}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#111;color:white;font-size:12px;font-weight:800}
+.planning-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.day-plan{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fafafa}
+.day-plan h3{margin:0 0 12px;font-size:18px}
+.plan-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
+.plan-item:first-of-type{border-top:0}
+.plan-time{font-weight:800;min-width:78px}
+.plan-title{font-weight:700}
+.plan-detail{font-size:12px;color:var(--muted);margin-top:2px}
+.plan-item.drive{background:#f0f0f0;border-radius:10px;padding:10px;margin:5px 0;border:0}
+.plan-item.extra-drive{background:#fff1bf;border-radius:10px;padding:10px;margin:5px 0;border:0}
+@media(max-width:700px){
+  .planning-grid{grid-template-columns:1fr}
+
+  header{padding:20px 16px}
+  .container{padding:0 10px}
+  #clock{font-size:29px}
+  .now-card,.info{padding:16px}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏆 Projeto Diamante • Cronograma semanal</h1>
+  <p>Uber + prospecção + estudo + atividade física</p>
+</header>
+
+<main class="container">
+  <section class="now-card">
+    <div class="now-top">
+      <div>
+        <div class="now-label">O que fazer agora</div>
+        <div id="clock">--:--:--</div>
+        <div id="date">Carregando data...</div>
+      </div>
+      <div><span class="badge" id="dayBadge">--</span></div>
+    </div>
+    <div class="action">
+      <strong id="currentAction">Calculando...</strong>
+      <small id="currentDetail"></small>
+    </div>
+    <div class="next" id="nextAction"></div>
+  </section>
+
+  <section class="now-card planning-card">
+    <div class="now-label">📅 Planejamento para se programar</div>
+    <div id="planning" class="planning-grid"></div>
+  </section>
+
+  <div class="legend">
+    <span class="uber">🚗 Uber</span>
+    <span class="extra">⭐ Horário de ponto extra</span>
+    <span class="prospect">📞 Prospecção</span>
+    <span class="study">📚 Estudo</span>
+    <span class="exercise">🏃 Esteira</span>
+    <span class="rest">☕ Descanso</span>
+    <span class="meal">🍽️ Refeição</span>
+    <span class="sleep">😴 Sono</span>
+  </div>
+
+  <section class="grid-wrap">
+    <table>
+      <thead>
+        <tr><th>Horário</th><th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</th><th>Sábado</th><th>Domingo</th></tr>
+      </thead>
+      <tbody id="schedule"></tbody>
+    </table>
+  </section>
+
+  <section class="info">
+    <h2>🎯 Regras do plano</h2>
+    <ul>
+      <li><strong>Uber:</strong> dirigir todos os dias das <strong>07h às 10h</strong> e das <strong>17h às 23h</strong>.</li>
+      <li><strong>⭐ Pontos extras:</strong> seg–qui 07h–10h e 17h–20h; sexta 07h–10h e 17h–00h; sábado 00h–03h e 19h–00h; domingo 00h–03h.</li>
+      <li><strong>📞 Prospecção:</strong> bloco principal das 10h às 12h.</li>
+      <li><strong>📚 Estudo:</strong> bloco principal das 13h às 16h.</li>
+      <li><strong>🏃 Esteira:</strong> 05h às 06h nos dias úteis. No fim de semana, pela manhã.</li>
+      <li>O painel "O que fazer agora" usa automaticamente o <strong>relógio e o dia do computador/celular</strong>. Não é necessário alterar a hora manualmente.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+const days = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+
+// Horários usados na tabela. Cada item: início, fim, classe, título, detalhe.
+const common = [
+  [0,5,"sleep","😴 Sono",""],
+  [5,6,"exercise","🏃 Esteira","30–60 min"],
+  [6,7,"rest","☕ Banho + café",""],
+  [7,10,"extra","🚗⭐ Uber","Pontos extras quando aplicável"],
+  [10,12,"prospect","📞 Prospecção","Clientes / contatos / follow-up"],
+  [12,13,"meal","🍽️ Almoço",""],
+  [13,16,"study","📚 Estudo","Bloco de estudo profundo"],
+  [16,17,"rest","☕ Pausa + preparação",""],
+  [17,23,"uber","🚗 Uber","17h–23h"]
+];
+
+const weekend = [
+  [0,7,"sleep","😴 Sono",""],
+  [7,8,"exercise","🏃 Esteira","30–60 min"],
+  [8,10,"study","📚 Estudo",""],
+  [10,12,"prospect","📞 Prospecção","Clientes / contatos / follow-up"],
+  [12,13,"meal","🍽️ Almoço",""],
+  [13,16,"study","📚 Estudo","Bloco de estudo"],
+  [16,17,"rest","☕ Pausa",""],
+  [17,19,"uber","🚗 Uber",""],
+  [19,23,"extra","🚗⭐ Uber","Pontos extras quando aplicável"]
+];
+
+const specialExtra = {
+  1:[[7,10],[17,20]], // segunda
+  2:[[7,10],[17,20]], // terça
+  3:[[7,10],[17,20]], // quarta
+  4:[[7,10],[17,20]], // quinta
+  5:[[7,10],[17,24]], // sexta
+  6:[[0,3],[19,24]],  // sábado
+  0:[[0,3]]            // domingo
+};
+
+function inRange(h, start, end){
+  if(end <= 24) return h >= start && h < end;
+  return h >= start || h < (end-24);
+}
+
+function isExtra(dayIndex, start, end){
+  const ranges = specialExtra[dayIndex] || [];
+  return ranges.some(([a,b]) => start >= a && end <= b);
+}
+
+function buildSchedule(){
+  const rows = [
+    [0,3],[3,5],[5,6],[6,7],[7,8],[8,9],[9,10],[10,12],[12,13],
+    [13,14],[14,16],[16,17],[17,19],[19,20],[20,21],[21,23],[23,24]
+  ];
+  const names = ["Segunda","Terça","Quarta","Quinta","Sexta","Sábado","Domingo"];
+  const tbody=document.getElementById("schedule");
+  tbody.innerHTML="";
+
+  rows.forEach(([a,b])=>{
+    const tr=document.createElement("tr");
+
+    const time=document.createElement("td");
+    time.className="time";
+    time.textContent=`${String(a).padStart(2,"0")}h–${b===24?"00":String(b).padStart(2,"0")}h`;
+    tr.appendChild(time);
+
+    names.forEach((name,idx)=>{
+      const dayIndex=idx+1===7 ? 0 : idx+1;
+      const td=document.createElement("td");
+
+      let item=null;
+
+      // Regras específicas dos horários de pontos extras.
+      if ((dayIndex===6 || dayIndex===0) && a===0 && b===3) {
+        item=[0,3,"extra","🚗⭐ Uber","2 pontos por viagem"];
+      } else if (dayIndex===5 && a===23 && b===24) {
+        item=[23,24,"extra","🚗⭐ Uber","2 pontos por viagem"];
+      } else if (dayIndex===6 && a>=19) {
+        item=[a,b,"extra","🚗⭐ Uber","2 pontos por viagem"];
+      } else {
+        // Rotina normal.
+        if (idx < 5) {
+          for (const x of common) {
+            if (a>=x[0] && b<=x[1]) { item=x; break; }
+          }
+        } else {
+          // Fim de semana, sem deixar o bloco 00–03 ser interpretado como sono.
+          const weekendBlocks=[
+            [3,7,"sleep","😴 Sono",""],
+            [7,8,"exercise","🏃 Esteira","30–60 min"],
+            [8,10,"study","📚 Estudo","Estudo"],
+            [10,12,"prospect","📞 Prospecção","Clientes / follow-up"],
+            [12,13,"meal","🍽️ Almoço","Pausa"],
+            [13,16,"study","📚 Estudo","Estudo"],
+            [16,17,"rest","☕ Pausa","Preparação"],
+            [17,19,"uber","🚗 Uber","Dirigir"],
+          ];
+          for (const x of weekendBlocks) {
+            if (a>=x[0] && b<=x[1]) { item=x; break; }
+          }
+        }
+
+        // Horários extras de segunda a sexta, e sábado à noite.
+        if (item && item[2]==="uber" && extraForDay(dayIndex,a,b)) {
+          item=[a,b,"extra","🚗⭐ Uber","2 pontos por viagem"];
+        }
+      }
+
+      if (item) {
+        const div=document.createElement("div");
+        div.className=`slot ${item[2]}`;
+        div.innerHTML=`${item[3]}<span>${item[4]}</span>`;
+        td.appendChild(div);
+      }
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+}
+function scheduleForNow(d){
+  const day = d.getDay();
+  const h = d.getHours() + d.getMinutes()/60;
+  const isWeekday = day>=1 && day<=5;
+
+  // Blocos prioritários e ações fora deles.
+  if(h>=7 && h<10) return ["🚗⭐ DIRIGIR UBER","07h–10h • prioridade total para viagens nos horários de ponto extra","Uber"];
+  if(h>=10 && h<12) return ["📞 PROSPECÇÃO","10h–12h • prospectar, responder leads e fazer follow-up","Prospecção"];
+  if(h>=12 && h<13) return ["🍽️ ALMOÇO / PAUSA","12h–13h • refeição e recuperação","Almoço"];
+  if(h>=13 && h<16) return ["📚 ESTUDAR","13h–16h • estudo sem distrações","Estudo"];
+  if(h>=16 && h<17) return ["☕ PAUSA + PREPARAR UBER","16h–17h • lanche, banheiro e preparar o segundo turno","Preparação"];
+  if(h>=17 && h<23) {
+    const extra = isWeekday && h<20 || day===5 || (day===6 && h>=19);
+    return [extra ? "🚗⭐ DIRIGIR UBER" : "🚗 DIRIGIR UBER",
+            "17h–23h • " + (extra ? "horário de ponto extra: 2 pontos por viagem quando aplicável" : "1 ponto por viagem"),
+            "Uber"];
+  }
+  if((day===5 && h>=23) || (day===6 && h<3)) return ["🚗⭐ DIRIGIR UBER","Sexta/sábado • ponto extra até 03h quando aplicável","Uber"];
+  if(day===0 && h<3) return ["🚗⭐ DIRIGIR UBER","Domingo • ponto extra até 03h","Uber"];
+  if(h>=5 && h<7) return ["🏃 ESTEIRA","05h–06h • atividade física antes do dia começar","Esteira"];
+  if(h>=3 && h<5) return ["😴 DORMIR","03h–05h • recuperar energia","Sono"];
+  return [isWeekday ? "😴 DORMIR" : "😴 DORMIR","Fora dos blocos principais • priorize descanso e recuperação","Descanso"];
+}
+
+function nextBoundary(d){
+  const h=d.getHours()+d.getMinutes()/60;
+  const boundaries=[5,6,7,10,12,13,16,17,19,20,23,24];
+  let next=boundaries.find(x=>x>h);
+  if(next===undefined) next=5;
+  let hours = next-h;
+  if(next===5 && h>=23) hours=24-h+5;
+  const mins=Math.max(1,Math.round(hours*60));
+  return mins;
+}
+
+function updateNow(){
+  const d=new Date();
+  document.getElementById("clock").textContent=d.toLocaleTimeString("pt-BR");
+  document.getElementById("date").textContent=d.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long",year:"numeric"});
+  document.getElementById("dayBadge").textContent=days[d.getDay()];
+  const [title,detail]=scheduleForNow(d);
+  document.getElementById("currentAction").textContent=title;
+  document.getElementById("currentDetail").textContent=detail;
+  const m=nextBoundary(d);
+  document.getElementById("nextAction").textContent=`⏱️ Próxima mudança de bloco em aproximadamente ${m} minuto${m===1?"":"s"}.`;
+}
+const planBlocks = [
+  {start:5,end:6,title:"🏃 Esteira",detail:"Atividade física"},
+  {start:7,end:10,title:"🚗⭐ Uber",detail:"Prioridade: pontos extras"},
+  {start:10,end:12,title:"📞 Prospecção",detail:"Clientes e follow-up"},
+  {start:12,end:13,title:"🍽️ Almoço",detail:"Pausa"},
+  {start:13,end:16,title:"📚 Estudo",detail:"Estudo profundo"},
+  {start:16,end:17,title:"☕ Preparação",detail:"Pausa e preparar segundo turno"},
+  {start:17,end:23,title:"🚗 Uber",detail:"Segundo turno"},
+];
+
+function extraForDay(dayIndex,start,end){
+  const ranges=specialExtra[dayIndex]||[];
+  return ranges.some(([a,b])=>start>=a && end<=b);
+}
+
+function dayPlan(dateObj){
+  const day=dateObj.getDay();
+  const blocks=[];
+
+  if(day>=1 && day<=5){
+    blocks.push({start:5,end:6,title:"🏃 Esteira",detail:"Atividade física"});
+    blocks.push({start:6,end:7,title:"☕ Banho + café",detail:""});
+    blocks.push({start:7,end:10,title:"🚗⭐ Uber",detail:"Ponto extra • 2 pontos por viagem",extra:true});
+    blocks.push({start:10,end:12,title:"📞 Prospecção",detail:"Clientes e follow-up"});
+    blocks.push({start:12,end:13,title:"🍽️ Almoço",detail:"Pausa"});
+    blocks.push({start:13,end:16,title:"📚 Estudo",detail:"Estudo profundo"});
+    blocks.push({start:16,end:17,title:"☕ Preparação",detail:"Pausa e preparar segundo turno"});
+
+    if(day===5){
+      blocks.push({start:17,end:20,title:"🚗⭐ Uber",detail:"Ponto extra • 2 pontos por viagem",extra:true});
+      blocks.push({start:20,end:23,title:"🚗⭐ Uber",detail:"Ponto extra • 2 pontos por viagem",extra:true});
+      blocks.push({start:23,end:24,title:"🚗⭐ Uber",detail:"Ponto extra • 2 pontos por viagem",extra:true});
+    } else {
+      blocks.push({start:17,end:20,title:"🚗⭐ Uber",detail:"Ponto extra • 2 pontos por viagem",extra:true});
+      blocks.push({start:20,end:23,title:"🚗 Uber",detail:"1 ponto por viagem"});
+    }
+  } else {
+    blocks.push({start:0,end:3,title:"🚗⭐ Uber",detail:"Ponto extra • 2 pontos por viagem",extra:true});
+    blocks.push({start:3,end:7,title:"😴 Sono",detail:""});
+    blocks.push({start:7,end:8,title:"🏃 Esteira",detail:"Atividade física"});
+    blocks.push({start:8,end:10,title:"📚 Estudo",detail:"Estudo"});
+    blocks.push({start:10,end:12,title:"📞 Prospecção",detail:"Clientes e follow-up"});
+    blocks.push({start:12,end:13,title:"🍽️ Almoço",detail:"Pausa"});
+    blocks.push({start:13,end:16,title:"📚 Estudo",detail:"Estudo"});
+    blocks.push({start:16,end:17,title:"☕ Pausa",detail:"Preparação"});
+    blocks.push({start:17,end:19,title:"🚗 Uber",detail:"1 ponto por viagem"});
+
+    if(day===6){
+      blocks.push({start:19,end:20,title:"🚗⭐ Uber",detail:"Ponto extra • 2 pontos por viagem",extra:true});
+      blocks.push({start:20,end:23,title:"🚗⭐ Uber",detail:"Ponto extra • 2 pontos por viagem",extra:true});
+      blocks.push({start:23,end:24,title:"🚗⭐ Uber",detail:"Ponto extra • 2 pontos por viagem",extra:true});
+    } else {
+      blocks.push({start:19,end:23,title:"🚗 Uber",detail:"1 ponto por viagem"});
+    }
+  }
+
+  return blocks.sort((a,b)=>a.start-b.start);
+}
+function renderPlanning(){
+  const now=new Date();
+  const tomorrow=new Date(now);
+  tomorrow.setDate(now.getDate()+1);
+
+  const container=document.getElementById("planning");
+  container.innerHTML="";
+
+  [now,tomorrow].forEach((d,idx)=>{
+    const card=document.createElement("div");
+    card.className="day-plan";
+    const label=idx===0 ? "HOJE" : "AMANHÃ";
+    card.innerHTML=`<h3>${label} • ${days[d.getDay()]}, ${d.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit"})}</h3>`;
+
+    const currentHour=d.getHours()+d.getMinutes()/60;
+    let items=dayPlan(d);
+
+    // Hoje: mostra apenas o que ainda pode ser feito.
+    if(idx===0){
+      items=items.filter(b=>b.end>currentHour);
+    }
+
+    // Evita mostrar a madrugada de amanhã, deixando os blocos úteis para planejamento.
+    if(items.length===0){
+      card.innerHTML += `<div class="plan-item"><div class="plan-title">🎉 Dia concluído</div></div>`;
+    } else {
+      items.forEach(b=>{
+        const div=document.createElement("div");
+        div.className="plan-item "+(b.extra?"extra-drive":b.title.includes("Uber")?"drive":"");
+        div.innerHTML=`<div class="plan-time">${String(b.start).padStart(2,"0")}h–${String(b.end).padStart(2,"0")}h</div>
+          <div><div class="plan-title">${b.title}</div><div class="plan-detail">${b.detail}</div></div>`;
+        card.appendChild(div);
+      });
+    }
+    container.appendChild(card);
+  });
+}
+
+buildSchedule();
+updateNow();
+renderPlanning();
+setInterval(updateNow,1000);
+setInterval(renderPlanning,30000);
+</script>
+</body>
+</html>
